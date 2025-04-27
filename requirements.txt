@@ -1,0 +1,20 @@
+--index-url https://mirrors.aliyun.com/pypi/simple/
+
+plotly
+networkx
+neo4j
+python-dotenv>=1.0.1
+flask
+numpy
+pandas
+mcp-openai>=0.2.0
+mcp>=1.1.2
+openai>=1.72.0
+mcp-server-fetch
+dspy-ai
+openai
+PyYAML>=5.4
+requests>=2.25
+beautifulsoup4>=4.9
+lxml>=4.6 # Recommended parser for BeautifulSoup
+trafilatura>=1.8.0 # For advanced content extraction

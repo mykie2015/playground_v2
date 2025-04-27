@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neo4j Graph Visualization</title>
+    <script>
+        // Preserve original console methods
+        const originalConsole = {
+            log: console.log.bind(console),
+            error: console.error.bind(console),
+            warn: console.warn.bind(console),
+            info: console.info.bind(console)
+        };
+        
+        // Override console methods to ensure they're not lost
+        console.log = function() {
+            originalConsole.log.apply(this, arguments);
+        };
+        console.error = function() {
+            originalConsole.error.apply(this, arguments);
+        };
+        console.warn = function() {
+            originalConsole.warn.apply(this, arguments);
+        };
+        console.info = function() {
+            originalConsole.info.apply(this, arguments);
+        };
+
+        // Enhanced console logging with forced output
+        window.initTime = Date.now();
+        
+        function log(message, type = 'info') {
+            const elapsed = Date.now() - window.initTime;
+            const formattedMessage = `[+${elapsed}ms] ${message}`;
+            
+            // Force all logs to use console.log for visibility
+            const emoji = type === 'error' ? '🔴' : 
+                         type === 'warn' ? '🟡' : 
+                         type === 'info' ? '🔵' : '⚪';
+            
+            console.log(emoji, formattedMessage);
+        }
+
+        log('Page starting to load...', 'info');
+    </script>
+    
+    <!-- Load Plotly with better error handling -->
+    <script>
+        log('Attempting to load Plotly library...');
+        
+        // Add a timeout check for Plotly loading
+        window.plotlyLoadTimeout = setTimeout(() => {
+            if (typeof Plotly === 'undefined') {
+                log('Plotly failed to load after timeout', 'error');
+                document.getElementById('error-message').textContent = 'Plotly library failed to load. Please check your internet connection and refresh the page.';
+                document.getElementById('error-message').style.display = 'block';
+            }
+        }, 5000); // 5 second timeout
+    </script>
+    
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js" 
+            onload="log('Plotly library loaded successfully'); clearTimeout(window.plotlyLoadTimeout);"
+            onerror="log('Failed to load Plotly library', 'error'); document.getElementById('error-message').textContent = 'Failed to load Plotly library. Please check your internet connection and refresh the page.'; document.getElementById('error-message').style.display = 'block';"></script>
+    
+    <!-- Fallback CDN in case the first one fails -->
+    <script>
+        window.addEventListener('load', () => {
+            if (typeof Plotly === 'undefined') {
+                log('Attempting to load Plotly from fallback CDN...', 'warn');
+                const script = document.createElement('script');
+                script.src = 'https://cdnjs.cloudflare.com/ajax/libs/plotly.js/2.27.0/plotly.min.js';
+                script.onload = () => {
+                    log('Plotly loaded successfully from fallback CDN');
+                    clearTimeout(window.plotlyLoadTimeout);
+                    // Reinitialize the graph if needed
+                    if (typeof loadGraph === 'function') {
+                        loadGraph();
+                    }
+                };
+                script.onerror = () => {
+                    log('Failed to load Plotly from fallback CDN', 'error');
+                };
+                document.head.appendChild(script);
+            }
+        });
+    </script>
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .controls-container {
+            background-color: #2d333b;
+            border-bottom: 1px solid #444;
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+        .controls-container.collapsed {
+            transform: translateY(-100%);
+        }
+        .controls-container.collapsed .toggle-controls {
+            transform: translateY(100%);
+        }
+        .controls {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px;
+            transition: height 0.3s ease;
+        }
+        .toggle-controls {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #2d333b;
+            border: 1px solid #444;
+            border-top: none;
+            border-radius: 0 0 4px 4px;
+            padding: 4px 12px;
+            color: #8b949e;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+        .toggle-controls:hover {
+            background-color: #373e47;
+            color: #fff;
+        }
+        .toggle-controls::after {
+            content: '▼';
+            display: inline-block;
+            margin-left: 5px;
+            transition: transform 0.3s ease;
+        }
+        .controls-container.collapsed .toggle-controls::after {
+            transform: rotate(180deg);
+        }
+        .main-container {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+            position: relative;
+        }
+        .graph-container {
+            flex: 1;
+            padding: 20px;
+            overflow: auto;
+            background-color: white;
+            position: relative;
+        }
+        .side-panel {
+            width: 300px;
+            background-color: #2d333b;
+            color: #fff;
+            padding: 20px;
+            overflow-y: auto;
+            border-left: 1px solid #444;
+        }
+        .panel-section {
+            margin-bottom: 20px;
+        }
+        .panel-title {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .node-type {
+            display: inline-block;
+            padding: 2px 8px;
+            background-color: #388e3c;
+            color: white;
+            border-radius: 12px;
+            font-size: 0.8em;
+            margin-bottom: 15px;
+        }
+        .property-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            padding: 4px 0;
+            font-size: 0.9em;
+            border-bottom: 1px solid #444;
+        }
+        .property-row:last-child {
+            border-bottom: none;
+        }
+        .property-key {
+            color: #8b949e;
+        }
+        .property-value {
+            color: #fff;
+            word-break: break-word;
+            max-width: 60%;
+            text-align: right;
+        }
+        .control-group {
+            background-color: #373e47;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        label {
+            color: #8b949e;
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="range"] {
+            width: 100%;
+            background: #444;
+        }
+        input[type="text"] {
+            width: calc(100% - 16px);
+            padding: 8px;
+            background: #444;
+            border: 1px solid #555;
+            color: #fff;
+            border-radius: 4px;
+        }
+        select {
+            width: 100%;
+            padding: 8px;
+            background: #444;
+            border: 1px solid #555;
+            color: #fff;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #2ea043;
+            border: none;
+            padding: 8px 15px;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        button:hover {
+            background-color: #3fb950;
+        }
+        .search-group {
+            display: flex;
+            gap: 8px;
+        }
+        .search-group input {
+            flex: 1;
+        }
+        .search-group button {
+            white-space: nowrap;
+        }
+        #graph {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .error-message {
+            background-color: #3d1c1c;
+            border-color: #ff4444;
+            color: #ff4444;
+        }
+        .loading-container {
+            background-color: rgba(45, 51, 59, 0.8);
+        }
+        .node-details {
+            display: none;
+        }
+        .node-details.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="controls-container">
+        <div class="controls">
+            <div class="control-group">
+                <div class="search-group">
+                    <input type="text" id="search" placeholder="Search nodes...">
+                    <button onclick="searchNode()">Search</button>
+                    <button onclick="clearSearch()">Clear</button>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label for="nodeSize">Node Size: <span id="nodeSizeValue">15</span></label>
+                <input type="range" id="nodeSize" min="5" max="30" value="15">
+            </div>
+            
+            <div class="control-group">
+                <label for="edgeWidth">Edge Width: <span id="edgeWidthValue">1</span></label>
+                <input type="range" id="edgeWidth" min="1" max="5" value="1">
+            </div>
+
+            <div class="control-group">
+                <label for="colorScheme">Color Scheme</label>
+                <select id="colorScheme" onchange="updateColorScheme()">
+                    <option value="Viridis">Viridis</option>
+                    <option value="Plasma">Plasma</option>
+                    <option value="Inferno">Inferno</option>
+                    <option value="Magma">Magma</option>
+                    <option value="RdBu">Red-Blue</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label for="layout">Layout</label>
+                <select id="layout" onchange="updateLayout()">
+                    <option value="force">Force-Directed</option>
+                    <option value="circular">Circular</option>
+                    <option value="random">Random</option>
+                    <option value="grid">Grid</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <button onclick="refreshGraph()">Refresh</button>
+                <button onclick="resetLayout()">Reset</button>
+                <button onclick="toggleLabels()">Toggle Labels</button>
+            </div>
+        </div>
+        <button class="toggle-controls" onclick="toggleControls()">Controls</button>
+    </div>
+
+    <div class="main-container">
+        <div class="graph-container">
+            <div id="error-message" class="error-message"></div>
+            <div id="graph"></div>
+        </div>
+        
+        <div class="side-panel">
+            <div class="panel-section">
+                <div class="panel-title">
+                    Node Details
+                    <span class="node-type">Movie</span>
+                </div>
+                <div id="node-details" class="node-details">
+                    <div class="property-row">
+                        <span class="property-key">ID</span>
+                        <span class="property-value">-</span>
+                    </div>
+                    <div class="property-row">
+                        <span class="property-key">Label</span>
+                        <span class="property-value">-</span>
+                    </div>
+                    <div class="property-row">
+                        <span class="property-key">Properties</span>
+                        <span class="property-value">-</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="loading" class="loading-container">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <script>
+        let graphData;
+        let showLabels = true;
+        let originalNodeColors;
+        let loadStartTime;
+        let graphDiv;
+
+        function showLoading() {
+            loadStartTime = Date.now();
+            document.getElementById('loading').style.display = 'flex';
+            log('Starting data load operation...');
+        }
+
+        function hideLoading() {
+            const loadTime = Date.now() - loadStartTime;
+            document.getElementById('loading').style.display = 'none';
+            log(`Loading complete (took ${loadTime}ms)`);
+        }
+
+        function showError(message) {
+            const errorDiv = document.getElementById('error-message');
+            errorDiv.textContent = message;
+            errorDiv.style.display = 'block';
+            log(message, 'error');
+        }
+
+        function hideError() {
+            document.getElementById('error-message').style.display = 'none';
+        }
+
+        // Check if Plotly is loaded
+        function checkPlotly() {
+            if (typeof Plotly === 'undefined') {
+                showError('Plotly library failed to load. Please check your internet connection and refresh the page.');
+                log('Plotly is not defined', 'error');
+                return false;
+            }
+            log('Plotly loaded successfully');
+            return true;
+        }
+
+        // Load initial graph data
+        async function loadGraph() {
+            if (!checkPlotly()) return;
+            
+            const startTime = Date.now();
+            showLoading();
+            hideError();
+            
+            try {
+                log('Initiating graph data fetch from server...');
+                const response = await fetch('/api/graph');
+                if (!response.ok) {
+                    throw new Error(`Server returned ${response.status}: ${response.statusText}`);
+                }
+                
+                log('Parsing server response...');
+                const data = await response.json();
+                log(`Data received (${JSON.stringify(data).length} bytes)`);
+                
+                graphData = data;
+                log('Processing node colors...');
+                originalNodeColors = data.data.find(trace => trace.mode && trace.mode.includes('markers'))?.marker.color.slice();
+                
+                log('Initializing plot layout...');
+                graphDiv = document.getElementById('graph');
+                await Plotly.newPlot(graphDiv, data.data, data.layout);
+                
+                const totalTime = Date.now() - startTime;
+                log(`Graph initialization complete (total time: ${totalTime}ms)`);
+                
+                hideLoading();
+
+                // Add node click handler
+                graphDiv.on('plotly_click', function(data) {
+                    const pt = data.points[0];
+                    const nodeData = {
+                        type: 'Node',
+                        id: pt.pointNumber,
+                        label: pt.text,
+                        properties: {
+                            x: pt.x.toFixed(2),
+                            y: pt.y.toFixed(2),
+                            connections: pt.data.text.length
+                        }
+                    };
+                    updateNodeDetails(nodeData);
+                });
+            } catch (error) {
+                console.error('Error loading graph:', error);
+                showError(`Failed to load graph: ${error.message}`);
+                hideLoading();
+            }
+        }
+
+        // Update graph with new settings
+        function updateGraph() {
+            if (!graphData || !graphDiv) return;
+
+            const nodeSize = document.getElementById('nodeSize').value;
+            const edgeWidth = document.getElementById('edgeWidth').value;
+
+            graphData.data.forEach(trace => {
+                if (trace.mode && trace.mode.includes('markers')) {
+                    trace.marker.size = parseInt(nodeSize);
+                }
+                if (trace.mode && trace.mode.includes('lines')) {
+                    trace.line.width = parseInt(edgeWidth);
+                }
+                if (trace.mode && trace.mode.includes('text')) {
+                    trace.textposition = showLabels ? 'top center' : 'none';
+                }
+            });
+
+            Plotly.react(graphDiv, graphData.data, graphData.layout);
+        }
+
+        function updateColorScheme() {
+            if (!graphData || !graphDiv) return;
+            const scheme = document.getElementById('colorScheme').value;
+            const nodeTrace = graphData.data.find(trace => trace.mode && trace.mode.includes('markers'));
+            if (nodeTrace) {
+                nodeTrace.marker.colorscale = scheme;
+                Plotly.react(graphDiv, graphData.data, graphData.layout);
+            }
+        }
+
+        function updateLayout() {
+            if (!graphData || !graphDiv) return;
+            showLoading();
+            const layoutType = document.getElementById('layout').value;
+            const nodeTrace = graphData.data.find(trace => trace.mode && trace.mode.includes('markers'));
+            
+            if (!nodeTrace) {
+                hideLoading();
+                return;
+            }
+
+            let positions;
+            const nodes = nodeTrace.x.length;
+
+            switch(layoutType) {
+                case 'circular':
+                    positions = generateCircularLayout(nodes);
+                    break;
+                case 'grid':
+                    positions = generateGridLayout(nodes);
+                    break;
+                case 'random':
+                    positions = generateRandomLayout(nodes);
+                    break;
+                default:
+                    hideLoading();
+                    return; // Force-directed is handled by Plotly
+            }
+
+            if (positions) {
+                graphData.data.forEach(trace => {
+                    if (trace.mode && trace.mode.includes('markers')) {
+                        trace.x = positions.x;
+                        trace.y = positions.y;
+                    }
+                });
+                Plotly.react(graphDiv, graphData.data, graphData.layout);
+            }
+            hideLoading();
+        }
+
+        function generateCircularLayout(n) {
+            const x = [], y = [];
+            for (let i = 0; i < n; i++) {
+                const angle = (2 * Math.PI * i) / n;
+                x.push(Math.cos(angle));
+                y.push(Math.sin(angle));
+            }
+            return {x, y};
+        }
+
+        function generateGridLayout(n) {
+            const x = [], y = [];
+            const cols = Math.ceil(Math.sqrt(n));
+            for (let i = 0; i < n; i++) {
+                x.push(i % cols);
+                y.push(Math.floor(i / cols));
+            }
+            return {x, y};
+        }
+
+        function generateRandomLayout(n) {
+            const x = [], y = [];
+            for (let i = 0; i < n; i++) {
+                x.push(Math.random() * 2 - 1);
+                y.push(Math.random() * 2 - 1);
+            }
+            return {x, y};
+        }
+
+        function searchNode() {
+            log('Searching for node...');
+            const searchTerm = document.getElementById('search').value.toLowerCase();
+            log(`Search term: "${searchTerm}"`);
+            
+            if (!graphData || !graphData.data) {
+                log('No graph data available for search', 'error');
+                showError('Please wait for the graph to load before searching');
+                return;
+            }
+
+            const nodeTrace = graphData.data.find(trace => trace.mode && trace.mode.includes('markers'));
+            log(`Found node trace with ${nodeTrace?.text?.length || 0} nodes`);
+            
+            if (nodeTrace && nodeTrace.text) {
+                let matchCount = 0;
+                const colors = nodeTrace.text.map((label, i) => {
+                    const isMatch = label.toLowerCase().includes(searchTerm);
+                    if (isMatch) matchCount++;
+                    return isMatch ? '#ff4444' : originalNodeColors[i];
+                });
+                
+                log(`Found ${matchCount} matching nodes`);
+                nodeTrace.marker.color = colors;
+                
+                if (matchCount === 0) {
+                    showError(`No nodes found matching "${searchTerm}"`);
+                } else {
+                    hideError();
+                }
+                
+                Plotly.react(graphDiv, graphData.data, graphData.layout)
+                    .then(() => log('Graph updated with search results'))
+                    .catch(err => log('Error updating graph: ' + err, 'error'));
+            } else {
+                log('No node trace found in graph data', 'error');
+                showError('Graph data is not in the expected format');
+            }
+        }
+
+        function clearSearch() {
+            log('Clearing search...');
+            const nodeTrace = graphData.data.find(trace => trace.mode && trace.mode.includes('markers'));
+            if (nodeTrace && originalNodeColors) {
+                nodeTrace.marker.color = originalNodeColors;
+                document.getElementById('search').value = '';
+                log('Search cleared, restoring original colors');
+                hideError();
+                Plotly.react(graphDiv, graphData.data, graphData.layout)
+                    .then(() => log('Graph restored to original state'))
+                    .catch(err => log('Error restoring graph: ' + err, 'error'));
+            } else {
+                log('No data to clear', 'warn');
+            }
+        }
+
+        // Event listeners for controls
+        document.getElementById('nodeSize').addEventListener('input', function(e) {
+            document.getElementById('nodeSizeValue').textContent = e.target.value;
+            log(`Node size changed to ${e.target.value}`);
+            updateGraph();
+        });
+
+        document.getElementById('edgeWidth').addEventListener('input', function(e) {
+            document.getElementById('edgeWidthValue').textContent = e.target.value;
+            log(`Edge width changed to ${e.target.value}`);
+            updateGraph();
+        });
+
+        document.getElementById('search').addEventListener('keyup', function(e) {
+            if (e.key === 'Enter') {
+                log('Search triggered by Enter key');
+                searchNode();
+            }
+        });
+
+        async function refreshGraph() {
+            log('Refreshing graph...');
+            await loadGraph();
+        }
+
+        function resetLayout() {
+            log('Resetting layout...');
+            if (graphData) {
+                Plotly.relayout(graphDiv, {
+                    'xaxis.range': undefined,
+                    'yaxis.range': undefined
+                })
+                .then(() => log('Layout reset complete'))
+                .catch(err => log('Error resetting layout: ' + err, 'error'));
+            } else {
+                log('No graph data to reset', 'warn');
+            }
+        }
+
+        function toggleLabels() {
+            showLabels = !showLabels;
+            log(`Labels ${showLabels ? 'shown' : 'hidden'}`);
+            updateGraph();
+        }
+
+        // Add node click handler
+        function updateNodeDetails(nodeData) {
+            const details = document.getElementById('node-details');
+            if (nodeData) {
+                details.innerHTML = `
+                    <span class="node-type">${nodeData.type || 'Node'}</span>
+                    <div class="property-row">
+                        <span class="property-key">ID</span>
+                        <span class="property-value">${nodeData.id || '-'}</span>
+                    </div>
+                    <div class="property-row">
+                        <span class="property-key">Label</span>
+                        <span class="property-value">${nodeData.label || '-'}</span>
+                    </div>
+                    ${Object.entries(nodeData.properties || {}).map(([key, value]) => `
+                        <div class="property-row">
+                            <span class="property-key">${key}</span>
+                            <span class="property-value">${value}</span>
+                        </div>
+                    `).join('')}
+                `;
+                details.classList.add('active');
+            } else {
+                details.innerHTML = `
+                    <span class="node-type">No node selected</span>
+                    <div class="property-row">
+                        <span class="property-key">ID</span>
+                        <span class="property-value">-</span>
+                    </div>
+                    <div class="property-row">
+                        <span class="property-key">Label</span>
+                        <span class="property-value">-</span>
+                    </div>
+                `;
+                details.classList.remove('active');
+            }
+        }
+
+        // Enhanced initialization
+        document.addEventListener('DOMContentLoaded', function() {
+            log('DOM Content loaded, preparing visualization...');
+            
+            // Initialize UI elements
+            log('Setting up UI controls...');
+            document.querySelectorAll('select, input, button').forEach(el => {
+                el.addEventListener('change', () => log(`Control "${el.id}" value changed to: ${el.value}`));
+            });
+            
+            // Load graph with progress tracking
+            log('Starting graph initialization...');
+            loadGraph().catch(error => {
+                log('Failed to initialize graph: ' + error, 'error');
+            });
+        });
+
+        function toggleControls() {
+            const container = document.querySelector('.controls-container');
+            container.classList.toggle('collapsed');
+            
+            // Trigger Plotly to redraw after animation completes
+            setTimeout(() => {
+                if (graphDiv && graphData) {
+                    Plotly.relayout(graphDiv, {
+                        'autosize': true
+                    });
+                }
+            }, 300);
+        }
+
+        // Add keyboard shortcut for toggling controls
+        document.addEventListener('keydown', function(e) {
+            // Ctrl/Cmd + Shift + C to toggle controls
+            if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key.toLowerCase() === 'c') {
+                toggleControls();
+                e.preventDefault();
+            }
+        });
+
+        // Modify your existing loadGraph function to handle resize
+        window.addEventListener('resize', function() {
+            if (graphDiv && graphData) {
+                Plotly.relayout(graphDiv, {
+                    'autosize': true
+                });
+            }
+        });
+    </script>
+</body>
+</html> 

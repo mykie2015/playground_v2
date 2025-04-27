@@ -1,0 +1,157 @@
+2025-04-13 17:22:20,076 - INFO - [__main__] - Logging initialized. Level: INFO, File: /Users/mykielee/GitHub/my_projects/playground/logs/fetch_webpage.log
+2025-04-13 17:22:20,076 - INFO - [__main__] - --- Starting webpage fetch process ---
+2025-04-13 17:22:20,076 - INFO - [__main__] - Using configuration file: /Users/mykielee/GitHub/my_projects/playground/src/fetch_webpage/weblinks.yml
+2025-04-13 17:22:20,076 - INFO - [__main__] - Using log file: /Users/mykielee/GitHub/my_projects/playground/logs/fetch_webpage.log
+2025-04-13 17:22:20,076 - INFO - [__main__] - Request timeout: 20s
+2025-04-13 17:22:20,076 - INFO - [__main__] - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3
+2025-04-13 17:22:20,076 - INFO - [__main__] - Output directory for fetched content: /Users/mykielee/GitHub/my_projects/playground/output/fetched_pages
+2025-04-13 17:22:20,076 - INFO - [__main__] - Config loaded successfully from /Users/mykielee/GitHub/my_projects/playground/src/fetch_webpage/weblinks.yml
+2025-04-13 17:22:20,076 - INFO - [__main__] - Found 1 URLs in 'to_be_fetched' list.
+2025-04-13 17:22:20,076 - INFO - [__main__] - Processing URL: https://help.apiyi.com/langchain-quickstart-apiyi-config.html
+2025-04-13 17:22:22,460 - INFO - [__main__] - Successfully fetched https://help.apiyi.com/langchain-quickstart-apiyi-config.html (Status: 200, Size: 113601 bytes)
+2025-04-13 17:22:22,464 - INFO - [__main__] - Saved fetched content for https://help.apiyi.com/langchain-quickstart-apiyi-config.html to /Users/mykielee/GitHub/my_projects/playground/output/fetched_pages/2025-04-13/help.apiyi.com_langchain-quickstart-apiyi-config.html.md
+2025-04-13 17:22:22,464 - INFO - [__main__] - Added 1 newly fetched URLs to the 'fetched' list.
+2025-04-13 17:22:22,464 - INFO - [__main__] - Saving updated configuration file.
+2025-04-13 17:22:22,465 - INFO - [__main__] - --- Webpage fetch process finished ---
+2025-04-13 17:22:22,466 - INFO - [__main__] - Attempted to process 1 URLs from the initial list in 2.39 seconds.
+2025-04-13 17:22:22,466 - INFO - [__main__] - Successfully fetched: 1, Failed: 0
+2025-04-13 17:22:22,467 - INFO - [__main__] - Config loaded successfully from /Users/mykielee/GitHub/my_projects/playground/src/fetch_webpage/weblinks.yml
+2025-04-13 17:22:22,467 - INFO - [__main__] - URLs currently in 'to_be_fetched': 0
+2025-04-13 17:22:22,467 - INFO - [__main__] - Total URLs in 'fetched': 1
+2025-04-13 17:24:31,280 - INFO - [__main__] - Logging initialized. Level: INFO, File: /Users/mykielee/GitHub/my_projects/playground/logs/fetch_webpage.log
+2025-04-13 17:24:31,280 - INFO - [__main__] - --- Starting webpage fetch process ---
+2025-04-13 17:24:31,280 - INFO - [__main__] - Using configuration file: /Users/mykielee/GitHub/my_projects/playground/src/fetch_webpage/weblinks.yml
+2025-04-13 17:24:31,280 - INFO - [__main__] - Using log file: /Users/mykielee/GitHub/my_projects/playground/logs/fetch_webpage.log
+2025-04-13 17:24:31,280 - INFO - [__main__] - Request timeout: 20s
+2025-04-13 17:24:31,280 - INFO - [__main__] - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3
+2025-04-13 17:24:31,280 - INFO - [__main__] - Output directory for fetched content: /Users/mykielee/GitHub/my_projects/playground/output/fetched_pages
+2025-04-13 17:24:31,281 - INFO - [__main__] - Config loaded successfully from /Users/mykielee/GitHub/my_projects/playground/src/fetch_webpage/weblinks.yml
+2025-04-13 17:24:31,281 - INFO - [__main__] - Found 1 URLs in 'to_be_fetched' list.
+2025-04-13 17:24:31,281 - INFO - [__main__] - Processing URL: https://help.apiyi.com/langchain-quickstart-apiyi-config.html
+2025-04-13 17:24:33,152 - INFO - [__main__] - Successfully fetched https://help.apiyi.com/langchain-quickstart-apiyi-config.html (Status: 200, Size: 114988 bytes)
+2025-04-13 17:24:33,154 - INFO - [__main__] - Saved fetched HTML content for https://help.apiyi.com/langchain-quickstart-apiyi-config.html to /Users/mykielee/GitHub/my_projects/playground/output/fetched_pages/2025-04-13/help.apiyi.com_langchain-quickstart-apiyi-config.html.html
+2025-04-13 17:24:33,154 - INFO - [__main__] - Added 1 newly fetched URLs to the 'fetched' list.
+2025-04-13 17:24:33,155 - INFO - [__main__] - Saving updated configuration file.
+2025-04-13 17:24:33,155 - INFO - [__main__] - --- Webpage fetch process finished ---
+2025-04-13 17:24:33,156 - INFO - [__main__] - Attempted to process 1 URLs from the initial list in 1.88 seconds.
+2025-04-13 17:24:33,156 - INFO - [__main__] - Successfully fetched: 1, Failed: 0
+2025-04-13 17:24:33,156 - INFO - [__main__] - Config loaded successfully from /Users/mykielee/GitHub/my_projects/playground/src/fetch_webpage/weblinks.yml
+2025-04-13 17:24:33,156 - INFO - [__main__] - URLs currently in 'to_be_fetched': 0
+2025-04-13 17:24:33,156 - INFO - [__main__] - Total URLs in 'fetched': 1
+2025-04-13 17:27:43,015 - INFO - [__main__] - Logging initialized. Level: INFO, File: /Users/mykielee/GitHub/my_projects/playground/logs/fetch_webpage.log
+2025-04-13 17:27:43,015 - INFO - [__main__] - --- Starting webpage fetch process ---
+2025-04-13 17:27:43,015 - INFO - [__main__] - Using configuration file: /Users/mykielee/GitHub/my_projects/playground/src/fetch_webpage/weblinks.yml
+2025-04-13 17:27:43,015 - INFO - [__main__] - Using log file: /Users/mykielee/GitHub/my_projects/playground/logs/fetch_webpage.log
+2025-04-13 17:27:43,015 - INFO - [__main__] - Request timeout: 20s
+2025-04-13 17:27:43,016 - INFO - [__main__] - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3
+2025-04-13 17:27:43,016 - INFO - [__main__] - Output directory for fetched content: /Users/mykielee/GitHub/my_projects/playground/output/fetched_pages
+2025-04-13 17:27:43,016 - INFO - [__main__] - Config loaded successfully from /Users/mykielee/GitHub/my_projects/playground/src/fetch_webpage/weblinks.yml
+2025-04-13 17:27:43,016 - INFO - [__main__] - Found 1 URLs in 'to_be_fetched' list.
+2025-04-13 17:27:43,016 - INFO - [__main__] - Processing URL: https://help.apiyi.com/langchain-quickstart-apiyi-config.html
+2025-04-13 17:27:45,535 - INFO - [__main__] - Successfully fetched https://help.apiyi.com/langchain-quickstart-apiyi-config.html (Status: 200, Size: 116085 bytes)
+2025-04-13 17:27:45,574 - INFO - [__main__] - Saved extracted text for https://help.apiyi.com/langchain-quickstart-apiyi-config.html to /Users/mykielee/GitHub/my_projects/playground/output/fetched_pages/2025-04-13/help.apiyi.com_langchain-quickstart-apiyi-config.html.md
+2025-04-13 17:27:45,574 - INFO - [__main__] - Added 1 newly fetched URLs to the 'fetched' list.
+2025-04-13 17:27:45,574 - INFO - [__main__] - Saving updated configuration file.
+2025-04-13 17:27:45,574 - INFO - [__main__] - --- Webpage fetch process finished ---
+2025-04-13 17:27:45,574 - INFO - [__main__] - Attempted to process 1 URLs from the initial list in 2.56 seconds.
+2025-04-13 17:27:45,574 - INFO - [__main__] - Successfully fetched: 1, Failed: 0
+2025-04-13 17:27:45,575 - INFO - [__main__] - Config loaded successfully from /Users/mykielee/GitHub/my_projects/playground/src/fetch_webpage/weblinks.yml
+2025-04-13 17:27:45,575 - INFO - [__main__] - URLs currently in 'to_be_fetched': 0
+2025-04-13 17:27:45,575 - INFO - [__main__] - Total URLs in 'fetched': 1
+2025-04-13 17:31:35,739 - INFO - [__main__] - Logging initialized. Level: INFO, File: /Users/mykielee/GitHub/my_projects/playground/logs/fetch_webpage.log
+2025-04-13 17:31:35,739 - INFO - [__main__] - --- Starting webpage fetch process ---
+2025-04-13 17:31:35,739 - INFO - [__main__] - Using configuration file: /Users/mykielee/GitHub/my_projects/playground/src/fetch_webpage/weblinks.yml
+2025-04-13 17:31:35,739 - INFO - [__main__] - Using log file: /Users/mykielee/GitHub/my_projects/playground/logs/fetch_webpage.log
+2025-04-13 17:31:35,739 - INFO - [__main__] - Request timeout: 20s
+2025-04-13 17:31:35,739 - INFO - [__main__] - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3
+2025-04-13 17:31:35,739 - INFO - [__main__] - Output directory for fetched content: /Users/mykielee/GitHub/my_projects/playground/output/fetched_pages
+2025-04-13 17:31:35,740 - INFO - [__main__] - Config loaded successfully from /Users/mykielee/GitHub/my_projects/playground/src/fetch_webpage/weblinks.yml
+2025-04-13 17:31:35,740 - INFO - [__main__] - Found 1 URLs in 'to_be_fetched' list.
+2025-04-13 17:31:35,740 - INFO - [__main__] - Processing URL: https://help.apiyi.com/langchain-quickstart-apiyi-config.html
+2025-04-13 17:31:39,421 - INFO - [__main__] - Successfully fetched https://help.apiyi.com/langchain-quickstart-apiyi-config.html (Status: 200, Size: 116789 bytes)
+2025-04-13 17:31:39,423 - ERROR - [__main__] - Unexpected error saving content for https://help.apiyi.com/langchain-quickstart-apiyi-config.html: extract() got an unexpected keyword argument 'favour_precision'
+Traceback (most recent call last):
+  File "/Users/mykielee/GitHub/my_projects/playground/src/fetch_webpage/mcp-fetch-weblink-detailed.py", line 194, in save_content_as_markdown
+    extracted_text = extract_main_content(html_content)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mykielee/GitHub/my_projects/playground/src/fetch_webpage/mcp-fetch-weblink-detailed.py", line 174, in extract_main_content
+    extracted_text = trafilatura_extract(html_content, favour_precision=True)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: extract() got an unexpected keyword argument 'favour_precision'
+2025-04-13 17:31:39,424 - INFO - [__main__] - Added 1 newly fetched URLs to the 'fetched' list.
+2025-04-13 17:31:39,424 - INFO - [__main__] - Saving updated configuration file.
+2025-04-13 17:31:39,425 - INFO - [__main__] - --- Webpage fetch process finished ---
+2025-04-13 17:31:39,425 - INFO - [__main__] - Attempted to process 1 URLs from the initial list in 3.69 seconds.
+2025-04-13 17:31:39,426 - INFO - [__main__] - Successfully fetched: 1, Failed: 0
+2025-04-13 17:31:39,427 - INFO - [__main__] - Config loaded successfully from /Users/mykielee/GitHub/my_projects/playground/src/fetch_webpage/weblinks.yml
+2025-04-13 17:31:39,427 - INFO - [__main__] - URLs currently in 'to_be_fetched': 0
+2025-04-13 17:31:39,427 - INFO - [__main__] - Total URLs in 'fetched': 1
+2025-04-13 17:32:31,320 - INFO - [__main__] - Logging initialized. Level: INFO, File: /Users/mykielee/GitHub/my_projects/playground/logs/fetch_webpage.log
+2025-04-13 17:32:31,320 - INFO - [__main__] - --- Starting webpage fetch process ---
+2025-04-13 17:32:31,320 - INFO - [__main__] - Using configuration file: /Users/mykielee/GitHub/my_projects/playground/src/fetch_webpage/weblinks.yml
+2025-04-13 17:32:31,320 - INFO - [__main__] - Using log file: /Users/mykielee/GitHub/my_projects/playground/logs/fetch_webpage.log
+2025-04-13 17:32:31,320 - INFO - [__main__] - Request timeout: 20s
+2025-04-13 17:32:31,320 - INFO - [__main__] - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3
+2025-04-13 17:32:31,320 - INFO - [__main__] - Output directory for fetched content: /Users/mykielee/GitHub/my_projects/playground/output/fetched_pages
+2025-04-13 17:32:31,321 - WARNING - [__main__] - Config missing 'fetched' list or is not a list. Initializing as empty.
+2025-04-13 17:32:31,321 - INFO - [__main__] - Config loaded successfully from /Users/mykielee/GitHub/my_projects/playground/src/fetch_webpage/weblinks.yml
+2025-04-13 17:32:31,321 - INFO - [__main__] - Found 1 URLs in 'to_be_fetched' list.
+2025-04-13 17:32:31,321 - INFO - [__main__] - Processing URL: https://help.apiyi.com/langchain-quickstart-apiyi-config.html
+2025-04-13 17:32:32,769 - INFO - [__main__] - Successfully fetched https://help.apiyi.com/langchain-quickstart-apiyi-config.html (Status: 200, Size: 116502 bytes)
+2025-04-13 17:32:32,770 - ERROR - [__main__] - Unexpected error saving content for https://help.apiyi.com/langchain-quickstart-apiyi-config.html: extract() got an unexpected keyword argument 'favour_precision'
+Traceback (most recent call last):
+  File "/Users/mykielee/GitHub/my_projects/playground/src/fetch_webpage/mcp-fetch-weblink-detailed.py", line 194, in save_content_as_markdown
+    extracted_text = extract_main_content(html_content)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mykielee/GitHub/my_projects/playground/src/fetch_webpage/mcp-fetch-weblink-detailed.py", line 174, in extract_main_content
+    extracted_text = trafilatura_extract(html_content, favour_precision=True)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: extract() got an unexpected keyword argument 'favour_precision'
+2025-04-13 17:32:32,772 - INFO - [__main__] - Added 1 newly fetched URLs to the 'fetched' list.
+2025-04-13 17:32:32,772 - INFO - [__main__] - Saving updated configuration file.
+2025-04-13 17:32:32,773 - INFO - [__main__] - --- Webpage fetch process finished ---
+2025-04-13 17:32:32,773 - INFO - [__main__] - Attempted to process 1 URLs from the initial list in 1.45 seconds.
+2025-04-13 17:32:32,773 - INFO - [__main__] - Successfully fetched: 1, Failed: 0
+2025-04-13 17:32:32,774 - INFO - [__main__] - Config loaded successfully from /Users/mykielee/GitHub/my_projects/playground/src/fetch_webpage/weblinks.yml
+2025-04-13 17:32:32,774 - INFO - [__main__] - URLs currently in 'to_be_fetched': 0
+2025-04-13 17:32:32,774 - INFO - [__main__] - Total URLs in 'fetched': 1
+2025-04-13 17:33:54,472 - INFO - [__main__] - Logging initialized. Level: INFO, File: /Users/mykielee/GitHub/my_projects/playground/logs/fetch_webpage.log
+2025-04-13 17:33:54,472 - INFO - [__main__] - --- Starting webpage fetch process ---
+2025-04-13 17:33:54,472 - INFO - [__main__] - Using configuration file: /Users/mykielee/GitHub/my_projects/playground/src/fetch_webpage/weblinks.yml
+2025-04-13 17:33:54,472 - INFO - [__main__] - Using log file: /Users/mykielee/GitHub/my_projects/playground/logs/fetch_webpage.log
+2025-04-13 17:33:54,472 - INFO - [__main__] - Request timeout: 20s
+2025-04-13 17:33:54,472 - INFO - [__main__] - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3
+2025-04-13 17:33:54,472 - INFO - [__main__] - Output directory for fetched content: /Users/mykielee/GitHub/my_projects/playground/output/fetched_pages
+2025-04-13 17:33:54,472 - INFO - [__main__] - Config loaded successfully from /Users/mykielee/GitHub/my_projects/playground/src/fetch_webpage/weblinks.yml
+2025-04-13 17:33:54,472 - INFO - [__main__] - Found 1 URLs in 'to_be_fetched' list.
+2025-04-13 17:33:54,472 - INFO - [__main__] - Processing URL: https://help.apiyi.com/langchain-quickstart-apiyi-config.html
+2025-04-13 17:33:55,944 - INFO - [__main__] - Successfully fetched https://help.apiyi.com/langchain-quickstart-apiyi-config.html (Status: 200, Size: 115849 bytes)
+2025-04-13 17:33:56,007 - INFO - [__main__] - Saved extracted text (via Trafilatura) for https://help.apiyi.com/langchain-quickstart-apiyi-config.html to /Users/mykielee/GitHub/my_projects/playground/output/fetched_pages/2025-04-13/help.apiyi.com_langchain-quickstart-apiyi-config.html.md
+2025-04-13 17:33:56,007 - INFO - [__main__] - Added 1 newly fetched URLs to the 'fetched' list.
+2025-04-13 17:33:56,008 - INFO - [__main__] - Saving updated configuration file.
+2025-04-13 17:33:56,008 - INFO - [__main__] - --- Webpage fetch process finished ---
+2025-04-13 17:33:56,008 - INFO - [__main__] - Attempted to process 1 URLs from the initial list in 1.54 seconds.
+2025-04-13 17:33:56,008 - INFO - [__main__] - Successfully fetched: 1, Failed: 0
+2025-04-13 17:33:56,008 - INFO - [__main__] - Config loaded successfully from /Users/mykielee/GitHub/my_projects/playground/src/fetch_webpage/weblinks.yml
+2025-04-13 17:33:56,008 - INFO - [__main__] - URLs currently in 'to_be_fetched': 0
+2025-04-13 17:33:56,008 - INFO - [__main__] - Total URLs in 'fetched': 1
+2025-04-14 05:10:31,971 - INFO - [__main__] - Logging initialized. Level: INFO, File: /Users/mykielee/GitHub/my_projects/playground/logs/fetch_webpage.log
+2025-04-14 05:10:31,971 - INFO - [__main__] - --- Starting webpage fetch process ---
+2025-04-14 05:10:31,971 - INFO - [__main__] - Using configuration file: /Users/mykielee/GitHub/my_projects/playground/src/fetch_webpage/weblinks.yml
+2025-04-14 05:10:31,971 - INFO - [__main__] - Using log file: /Users/mykielee/GitHub/my_projects/playground/logs/fetch_webpage.log
+2025-04-14 05:10:31,971 - INFO - [__main__] - Request timeout: 20s
+2025-04-14 05:10:31,971 - INFO - [__main__] - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3
+2025-04-14 05:10:31,971 - INFO - [__main__] - Output directory for fetched content: /Users/mykielee/GitHub/my_projects/playground/output/fetched_pages
+2025-04-14 05:10:31,971 - INFO - [__main__] - Config loaded successfully from /Users/mykielee/GitHub/my_projects/playground/src/fetch_webpage/weblinks.yml
+2025-04-14 05:10:31,971 - INFO - [__main__] - Found 1 URLs in 'to_be_fetched' list.
+2025-04-14 05:10:31,971 - INFO - [__main__] - Processing URL: https://www.aivi.fyi/aiagents/introduce-ADK
+2025-04-14 05:10:32,334 - INFO - [__main__] - Successfully fetched https://www.aivi.fyi/aiagents/introduce-ADK (Status: 200, Size: 64045 bytes)
+2025-04-14 05:10:32,409 - INFO - [__main__] - Saved extracted text (via Trafilatura) for https://www.aivi.fyi/aiagents/introduce-ADK to /Users/mykielee/GitHub/my_projects/playground/output/fetched_pages/2025-04-14/www.aivi.fyi_aiagents_introduce-ADK.md
+2025-04-14 05:10:32,409 - INFO - [__main__] - Added 1 newly fetched URLs to the 'fetched' list.
+2025-04-14 05:10:32,409 - INFO - [__main__] - Saving updated configuration file.
+2025-04-14 05:10:32,410 - INFO - [__main__] - --- Webpage fetch process finished ---
+2025-04-14 05:10:32,410 - INFO - [__main__] - Attempted to process 1 URLs from the initial list in 0.44 seconds.
+2025-04-14 05:10:32,410 - INFO - [__main__] - Successfully fetched: 1, Failed: 0
+2025-04-14 05:10:32,410 - INFO - [__main__] - Config loaded successfully from /Users/mykielee/GitHub/my_projects/playground/src/fetch_webpage/weblinks.yml
+2025-04-14 05:10:32,410 - INFO - [__main__] - URLs currently in 'to_be_fetched': 0
+2025-04-14 05:10:32,410 - INFO - [__main__] - Total URLs in 'fetched': 2

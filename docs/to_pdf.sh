@@ -1,0 +1,1 @@
+pandoc docs/neo4j_graph/*.md -o neo4j_graph_docs.pdf --resource-path=docs/neo4j_graph

@@ -1,0 +1,711 @@
+2025-04-15 05:20:43,558 | INFO     | main | main.py:14 | Starting RAG pipeline application
+2025-04-15 05:20:43,558 | DEBUG    | main | main.py:18 | Environment variables loaded
+2025-04-15 05:20:43,558 | INFO     | main | main.py:21 | Configuring DSPy language model
+2025-04-15 05:20:43,559 | DEBUG    | main | main.py:27 | Environment variables loaded from .env:
+2025-04-15 05:20:43,559 | DEBUG    | main | main.py:28 | OPENAI_API_BASE: https://vip.apiyi.com/v1
+2025-04-15 05:20:43,559 | DEBUG    | main | main.py:29 | LLM_MODEL: gpt-4o-mini
+2025-04-15 05:20:43,559 | INFO     | main | main.py:36 | Using configured model: gpt-4o-mini
+2025-04-15 05:20:43,559 | DEBUG    | main | main.py:47 | Using OpenAI API Base: https://vip.apiyi.com/v1
+2025-04-15 05:20:43,559 | DEBUG    | main | main.py:49 | Attempting to initialize LLM with model: gpt-4o-mini
+2025-04-15 05:20:43,559 | INFO     | main | main.py:52 | DSPy successfully configured with OpenAI model: gpt-4o-mini
+2025-04-15 05:20:43,559 | INFO     | main | main.py:59 | Initializing Neo4j connection
+2025-04-15 05:20:43,559 | INFO     | rag_pipeline | rag_pipeline.py:90 | Initializing Neo4j driver
+2025-04-15 05:20:43,608 | INFO     | rag_pipeline | rag_pipeline.py:103 | Successfully connected to Neo4j for RAG pipeline
+2025-04-15 05:20:43,608 | INFO     | main | main.py:80 | Initializing RAG pipeline
+2025-04-15 05:20:43,608 | INFO     | rag_pipeline | rag_pipeline.py:61 | Initializing GraphRAG with k=3
+2025-04-15 05:20:43,608 | INFO     | rag_pipeline | rag_pipeline.py:13 | Initializing Neo4jRetriever with k=3
+2025-04-15 05:20:43,609 | DEBUG    | rag_pipeline | rag_pipeline.py:65 | GraphRAG initialization complete
+2025-04-15 05:20:43,609 | INFO     | main | main.py:83 | Processing question: What is Shor's Algorithm?
+2025-04-15 05:20:43,609 | INFO     | rag_pipeline | rag_pipeline.py:68 | Processing question: What is Shor's Algorithm?
+2025-04-15 05:20:43,609 | DEBUG    | rag_pipeline | rag_pipeline.py:71 | Starting context retrieval
+2025-04-15 05:20:43,609 | INFO     | rag_pipeline | rag_pipeline.py:20 | Starting retrieval for query: What is Shor's Algorithm?
+2025-04-15 05:20:43,609 | DEBUG    | rag_pipeline | rag_pipeline.py:25 | Processing 1 queries with k=3
+2025-04-15 05:20:43,609 | DEBUG    | rag_pipeline | rag_pipeline.py:30 | Processing query 1/1: What is Shor's Algorithm?
+2025-04-15 05:20:43,609 | DEBUG    | rag_pipeline | rag_pipeline.py:38 | Executing Cypher query with parameters: query_text=What is Shor's Algorithm?, limit=3
+2025-04-15 05:20:43,657 | DEBUG    | rag_pipeline | rag_pipeline.py:42 | Found 0 results for query: What is Shor's Algorithm?
+2025-04-15 05:20:43,657 | INFO     | rag_pipeline | rag_pipeline.py:48 | Retrieval complete. Total results: 0
+2025-04-15 05:20:43,658 | DEBUG    | rag_pipeline | rag_pipeline.py:73 | Retrieved 0 passages for context
+2025-04-15 05:20:43,658 | DEBUG    | rag_pipeline | rag_pipeline.py:76 | Generating answer using ChainOfThought
+2025-04-15 05:20:53,161 | INFO     | rag_pipeline | rag_pipeline.py:79 | Successfully generated answer
+2025-04-15 05:20:53,161 | DEBUG    | rag_pipeline | rag_pipeline.py:80 | Generated answer: Shor's Algorithm is a quantum algorithm that efficiently factors large integers, which is a critical problem in number theory and has significant implications for cryptography. Developed by Peter Shor in 1994, it operates in polynomial time, making it much faster than classical algorithms for integer factorization. This efficiency poses a potential threat to widely used cryptographic systems like RSA, which rely on the difficulty of factoring large numbers. The algorithm leverages quantum computing techniques, such as superposition and entanglement, to achieve its results.
+2025-04-15 05:20:53,161 | INFO     | main | main.py:86 | Successfully generated response
+2025-04-15 05:20:53,161 | DEBUG    | main | main.py:87 | Full response: Prediction(
+    reasoning="Shor's Algorithm is a quantum algorithm developed by mathematician Peter Shor in 1994. It is designed for integer factorization, which means it can efficiently find the prime factors of a composite number. This is significant because the security of many cryptographic systems, such as RSA, relies on the difficulty of factoring large integers. Shor's Algorithm operates in polynomial time, making it exponentially faster than the best-known classical algorithms for this problem, which run in sub-exponential time. The algorithm utilizes quantum computing principles, including superposition and entanglement, to achieve its efficiency.",
+    answer="Shor's Algorithm is a quantum algorithm that efficiently factors large integers, which is a critical problem in number theory and has significant implications for cryptography. Developed by Peter Shor in 1994, it operates in polynomial time, making it much faster than classical algorithms for integer factorization. This efficiency poses a potential threat to widely used cryptographic systems like RSA, which rely on the difficulty of factoring large numbers. The algorithm leverages quantum computing techniques, such as superposition and entanglement, to achieve its results."
+)
+2025-04-15 05:20:53,161 | INFO     | main | main.py:101 | Neo4j connection closed
+2025-04-15 05:27:47,348 | INFO     | main | main.py:14 | Starting RAG pipeline application
+2025-04-15 05:27:47,348 | DEBUG    | main | main.py:18 | Environment variables loaded
+2025-04-15 05:27:47,348 | INFO     | main | main.py:21 | Configuring DSPy language model
+2025-04-15 05:27:47,348 | DEBUG    | main | main.py:27 | Environment variables loaded from .env:
+2025-04-15 05:27:47,348 | DEBUG    | main | main.py:28 | OPENAI_API_BASE: https://vip.apiyi.com/v1
+2025-04-15 05:27:47,348 | DEBUG    | main | main.py:29 | LLM_MODEL: gpt-4o-mini
+2025-04-15 05:27:47,348 | INFO     | main | main.py:36 | Using configured model: gpt-4o-mini
+2025-04-15 05:27:47,348 | DEBUG    | main | main.py:47 | Using OpenAI API Base: https://vip.apiyi.com/v1
+2025-04-15 05:27:47,348 | DEBUG    | main | main.py:49 | Attempting to initialize LLM with model: gpt-4o-mini
+2025-04-15 05:27:47,349 | INFO     | main | main.py:52 | DSPy successfully configured with OpenAI model: gpt-4o-mini
+2025-04-15 05:27:47,349 | INFO     | main | main.py:59 | Initializing Neo4j connection
+2025-04-15 05:27:47,349 | INFO     | rag_pipeline | rag_pipeline.py:101 | Initializing Neo4j driver
+2025-04-15 05:27:47,396 | INFO     | rag_pipeline | rag_pipeline.py:114 | Successfully connected to Neo4j for RAG pipeline
+2025-04-15 05:27:47,396 | INFO     | main | main.py:72 | Loading sample data into Neo4j
+2025-04-15 05:27:47,397 | INFO     | data_loader | data_loader.py:12 | Clearing existing Neo4j data
+2025-04-15 05:27:47,437 | INFO     | data_loader | data_loader.py:16 | Loading sample data into Neo4j
+2025-04-15 05:27:47,437 | DEBUG    | data_loader | data_loader.py:29 | Executing data creation query:
+
+        CREATE (qc:Concept {name: 'Quantum Computing', text: 'Quantum computing leverages quantum mechanical phenomena like superposition and entanglement to perform computation.'})
+        CREATE (sa:Concept {name: 'Shor\'s Algorithm', text: 'A quantum algorithm developed by Peter Shor in 1994 that efficiently factors large integers, which has significant implications for cryptography. The algorithm uses quantum superposition to find the period of a function, which is then used to factor the number.'})
+        CREATE (rsa:Concept {name: 'RSA Encryption', text: 'RSA is a widely used public-key cryptosystem for secure data transmission, whose security relies on the difficulty of factoring large numbers.'})
+        CREATE (ent:Concept {name: 'Quantum Entanglement', text: 'Quantum entanglement is a physical phenomenon where particles become correlated in such a way that the quantum state of each particle cannot be described independently.'})
+        CREATE (qp:Concept {name: 'Quantum Period Finding', text: 'A quantum subroutine used in Shor\'s algorithm that efficiently finds the period of a periodic function, which is crucial for factoring numbers.'})
+
+        MERGE (qc)-[:RELATED_TO]->(sa)
+        MERGE (sa)-[:USES]->(qp)
+        MERGE (sa)-[:BREAKS]->(rsa)
+        MERGE (qc)-[:USES_PHENOMENON]->(ent)
+        
+2025-04-15 05:27:47,707 | INFO     | data_loader | data_loader.py:36 | Successfully loaded 5 concept nodes
+2025-04-15 05:27:47,707 | DEBUG    | data_loader | data_loader.py:45 | Testing search capability with 'Shor'
+2025-04-15 05:27:47,772 | INFO     | data_loader | data_loader.py:47 | Found 2 nodes containing 'Shor'
+2025-04-15 05:27:47,772 | DEBUG    | data_loader | data_loader.py:49 | Found match: Shor's Algorithm
+2025-04-15 05:27:47,772 | DEBUG    | data_loader | data_loader.py:49 | Found match: Quantum Period Finding
+2025-04-15 05:27:47,772 | INFO     | main | main.py:75 | Sample data loaded successfully
+2025-04-15 05:27:47,772 | INFO     | main | main.py:80 | Initializing RAG pipeline
+2025-04-15 05:27:47,772 | INFO     | rag_pipeline | rag_pipeline.py:72 | Initializing GraphRAG with k=3
+2025-04-15 05:27:47,772 | INFO     | rag_pipeline | rag_pipeline.py:13 | Initializing Neo4jRetriever with k=3
+2025-04-15 05:27:47,773 | DEBUG    | rag_pipeline | rag_pipeline.py:76 | GraphRAG initialization complete
+2025-04-15 05:27:47,774 | INFO     | main | main.py:83 | Processing question: What is Shor's Algorithm?
+2025-04-15 05:27:47,774 | INFO     | rag_pipeline | rag_pipeline.py:79 | Processing question: What is Shor's Algorithm?
+2025-04-15 05:27:47,774 | DEBUG    | rag_pipeline | rag_pipeline.py:82 | Starting context retrieval
+2025-04-15 05:27:47,774 | INFO     | rag_pipeline | rag_pipeline.py:20 | Starting retrieval for query: What is Shor's Algorithm?
+2025-04-15 05:27:47,774 | DEBUG    | rag_pipeline | rag_pipeline.py:25 | Processing 1 queries with k=3
+2025-04-15 05:27:47,774 | DEBUG    | rag_pipeline | rag_pipeline.py:32 | Processing query 1/1: What is Shor's Algorithm?
+2025-04-15 05:27:47,774 | DEBUG    | rag_pipeline | rag_pipeline.py:33 | Cleaned query: shor's algorithm
+2025-04-15 05:27:47,774 | DEBUG    | rag_pipeline | rag_pipeline.py:45 | Executing Cypher query with parameters: query_text=What is Shor's Algorithm?, clean_query=shor's algorithm, limit=3
+2025-04-15 05:27:47,883 | ERROR    | rag_pipeline | rag_pipeline.py:56 | Error executing Neo4j query: module 'dspy' has no attribute 'Passage'
+2025-04-15 05:27:47,884 | ERROR    | main | main.py:91 | Error during RAG pipeline execution: module 'dspy' has no attribute 'Passage'
+2025-04-15 05:27:47,884 | DEBUG    | main | main.py:92 | Attempting to inspect LM history for debugging
+2025-04-15 05:27:47,884 | INFO     | main | main.py:101 | Neo4j connection closed
+2025-04-15 05:29:20,900 | INFO     | main | main.py:14 | Starting RAG pipeline application
+2025-04-15 05:29:20,902 | DEBUG    | main | main.py:18 | Environment variables loaded
+2025-04-15 05:29:20,902 | INFO     | main | main.py:21 | Configuring DSPy language model
+2025-04-15 05:29:20,902 | DEBUG    | main | main.py:27 | Environment variables loaded from .env:
+2025-04-15 05:29:20,902 | DEBUG    | main | main.py:28 | OPENAI_API_BASE: https://vip.apiyi.com/v1
+2025-04-15 05:29:20,902 | DEBUG    | main | main.py:29 | LLM_MODEL: gpt-4o-mini
+2025-04-15 05:29:20,902 | INFO     | main | main.py:36 | Using configured model: gpt-4o-mini
+2025-04-15 05:29:20,902 | DEBUG    | main | main.py:47 | Using OpenAI API Base: https://vip.apiyi.com/v1
+2025-04-15 05:29:20,902 | DEBUG    | main | main.py:49 | Attempting to initialize LLM with model: gpt-4o-mini
+2025-04-15 05:29:20,902 | INFO     | main | main.py:52 | DSPy successfully configured with OpenAI model: gpt-4o-mini
+2025-04-15 05:29:20,902 | INFO     | main | main.py:59 | Initializing Neo4j connection
+2025-04-15 05:29:20,902 | INFO     | rag_pipeline | rag_pipeline.py:104 | Initializing Neo4j driver
+2025-04-15 05:29:20,932 | INFO     | rag_pipeline | rag_pipeline.py:117 | Successfully connected to Neo4j for RAG pipeline
+2025-04-15 05:29:20,932 | INFO     | main | main.py:72 | Loading sample data into Neo4j
+2025-04-15 05:29:20,932 | INFO     | data_loader | data_loader.py:12 | Clearing existing Neo4j data
+2025-04-15 05:29:20,947 | INFO     | data_loader | data_loader.py:16 | Loading sample data into Neo4j
+2025-04-15 05:29:20,947 | DEBUG    | data_loader | data_loader.py:29 | Executing data creation query:
+
+        CREATE (qc:Concept {name: 'Quantum Computing', text: 'Quantum computing leverages quantum mechanical phenomena like superposition and entanglement to perform computation.'})
+        CREATE (sa:Concept {name: 'Shor\'s Algorithm', text: 'A quantum algorithm developed by Peter Shor in 1994 that efficiently factors large integers, which has significant implications for cryptography. The algorithm uses quantum superposition to find the period of a function, which is then used to factor the number.'})
+        CREATE (rsa:Concept {name: 'RSA Encryption', text: 'RSA is a widely used public-key cryptosystem for secure data transmission, whose security relies on the difficulty of factoring large numbers.'})
+        CREATE (ent:Concept {name: 'Quantum Entanglement', text: 'Quantum entanglement is a physical phenomenon where particles become correlated in such a way that the quantum state of each particle cannot be described independently.'})
+        CREATE (qp:Concept {name: 'Quantum Period Finding', text: 'A quantum subroutine used in Shor\'s algorithm that efficiently finds the period of a periodic function, which is crucial for factoring numbers.'})
+
+        MERGE (qc)-[:RELATED_TO]->(sa)
+        MERGE (sa)-[:USES]->(qp)
+        MERGE (sa)-[:BREAKS]->(rsa)
+        MERGE (qc)-[:USES_PHENOMENON]->(ent)
+        
+2025-04-15 05:29:21,004 | INFO     | data_loader | data_loader.py:36 | Successfully loaded 5 concept nodes
+2025-04-15 05:29:21,004 | DEBUG    | data_loader | data_loader.py:45 | Testing search capability with 'Shor'
+2025-04-15 05:29:21,013 | INFO     | data_loader | data_loader.py:47 | Found 2 nodes containing 'Shor'
+2025-04-15 05:29:21,013 | DEBUG    | data_loader | data_loader.py:49 | Found match: Shor's Algorithm
+2025-04-15 05:29:21,013 | DEBUG    | data_loader | data_loader.py:49 | Found match: Quantum Period Finding
+2025-04-15 05:29:21,013 | INFO     | main | main.py:75 | Sample data loaded successfully
+2025-04-15 05:29:21,013 | INFO     | main | main.py:80 | Initializing RAG pipeline
+2025-04-15 05:29:21,013 | INFO     | rag_pipeline | rag_pipeline.py:73 | Initializing GraphRAG with k=3
+2025-04-15 05:29:21,013 | INFO     | rag_pipeline | rag_pipeline.py:13 | Initializing Neo4jRetriever with k=3
+2025-04-15 05:29:21,021 | DEBUG    | rag_pipeline | rag_pipeline.py:77 | GraphRAG initialization complete
+2025-04-15 05:29:21,021 | INFO     | main | main.py:83 | Processing question: What is Shor's Algorithm?
+2025-04-15 05:29:21,021 | INFO     | rag_pipeline | rag_pipeline.py:80 | Processing question: What is Shor's Algorithm?
+2025-04-15 05:29:21,021 | DEBUG    | rag_pipeline | rag_pipeline.py:83 | Starting context retrieval
+2025-04-15 05:29:21,021 | INFO     | rag_pipeline | rag_pipeline.py:20 | Starting retrieval for query: What is Shor's Algorithm?
+2025-04-15 05:29:21,022 | DEBUG    | rag_pipeline | rag_pipeline.py:25 | Processing 1 queries with k=3
+2025-04-15 05:29:21,022 | DEBUG    | rag_pipeline | rag_pipeline.py:32 | Processing query 1/1: What is Shor's Algorithm?
+2025-04-15 05:29:21,022 | DEBUG    | rag_pipeline | rag_pipeline.py:33 | Cleaned query: shor's algorithm
+2025-04-15 05:29:21,022 | DEBUG    | rag_pipeline | rag_pipeline.py:45 | Executing Cypher query with parameters: query_text=What is Shor's Algorithm?, clean_query=shor's algorithm, limit=3
+2025-04-15 05:29:21,123 | DEBUG    | rag_pipeline | rag_pipeline.py:54 | Found 2 results for query: What is Shor's Algorithm?
+2025-04-15 05:29:21,123 | INFO     | rag_pipeline | rag_pipeline.py:60 | Retrieval complete. Total results: 2
+2025-04-15 05:29:21,123 | DEBUG    | rag_pipeline | rag_pipeline.py:85 | Retrieved 2 passages for context
+2025-04-15 05:29:21,123 | DEBUG    | rag_pipeline | rag_pipeline.py:90 | Generating answer using ChainOfThought
+2025-04-15 05:29:24,879 | INFO     | rag_pipeline | rag_pipeline.py:93 | Successfully generated answer
+2025-04-15 05:29:24,880 | DEBUG    | rag_pipeline | rag_pipeline.py:94 | Generated answer: Shor's Algorithm is a quantum algorithm created by Peter Shor in 1994 that efficiently factors large integers, which has significant implications for cryptography. It utilizes quantum superposition to find the period of a function, which is essential for the factoring process. A key part of this algorithm is the Quantum Period Finding subroutine, which plays a vital role in determining the period of a periodic function efficiently.
+2025-04-15 05:29:24,880 | INFO     | main | main.py:86 | Successfully generated response
+2025-04-15 05:29:24,880 | DEBUG    | main | main.py:87 | Full response: Prediction(
+    reasoning="Shor's Algorithm is a quantum algorithm that was developed by Peter Shor in 1994. It is designed to efficiently factor large integers, which is particularly important for cryptography. The algorithm leverages quantum superposition to determine the period of a function, a key step in the factoring process. Additionally, a crucial component of Shor's Algorithm is the Quantum Period Finding subroutine, which aids in finding the period of a periodic function efficiently.",
+    answer="Shor's Algorithm is a quantum algorithm created by Peter Shor in 1994 that efficiently factors large integers, which has significant implications for cryptography. It utilizes quantum superposition to find the period of a function, which is essential for the factoring process. A key part of this algorithm is the Quantum Period Finding subroutine, which plays a vital role in determining the period of a periodic function efficiently."
+)
+2025-04-15 05:29:24,881 | INFO     | main | main.py:101 | Neo4j connection closed
+2025-04-15 05:37:48,027 | INFO     | main | main.py:14 | Starting RAG pipeline application
+2025-04-15 05:37:48,028 | DEBUG    | main | main.py:18 | Environment variables loaded
+2025-04-15 05:37:48,028 | INFO     | main | main.py:21 | Configuring DSPy language model
+2025-04-15 05:37:48,028 | DEBUG    | main | main.py:27 | Environment variables loaded from .env:
+2025-04-15 05:37:48,028 | DEBUG    | main | main.py:28 | OPENAI_API_BASE: https://vip.apiyi.com/v1
+2025-04-15 05:37:48,028 | DEBUG    | main | main.py:29 | LLM_MODEL: gpt-4o-mini
+2025-04-15 05:37:48,028 | INFO     | main | main.py:36 | Using configured model: gpt-4o-mini
+2025-04-15 05:37:48,028 | DEBUG    | main | main.py:47 | Using OpenAI API Base: https://vip.apiyi.com/v1
+2025-04-15 05:37:48,028 | DEBUG    | main | main.py:49 | Attempting to initialize LLM with model: gpt-4o-mini
+2025-04-15 05:37:48,028 | INFO     | main | main.py:52 | DSPy successfully configured with OpenAI model: gpt-4o-mini
+2025-04-15 05:37:48,028 | INFO     | main | main.py:59 | Initializing Neo4j connection
+2025-04-15 05:37:48,028 | INFO     | rag_pipeline | rag_pipeline.py:114 | Initializing Neo4j driver
+2025-04-15 05:37:48,069 | INFO     | rag_pipeline | rag_pipeline.py:127 | Successfully connected to Neo4j for RAG pipeline
+2025-04-15 05:37:48,069 | INFO     | main | main.py:72 | Loading sample data into Neo4j
+2025-04-15 05:37:48,069 | INFO     | data_loader | data_loader.py:12 | Clearing existing Neo4j data
+2025-04-15 05:37:48,094 | INFO     | data_loader | data_loader.py:16 | Loading DSPy and RAG patterns data
+2025-04-15 05:37:48,094 | DEBUG    | data_loader | data_loader.py:70 | Executing data creation query:
+
+        // Core DSPy Concepts
+        CREATE (dspy:Concept {name: 'DSPy', text: 'A framework for programming with language models (LMs) that separates model prompting from execution, enabling systematic prompt development and optimization.'})
+        CREATE (signature:Concept {name: 'DSPy Signature', text: 'A class that defines the expected inputs and outputs of a language model operation, making the interface explicit and type-safe.'})
+        CREATE (module:Concept {name: 'DSPy Module', text: 'A composable unit in DSPy that encapsulates a specific LM operation, can be chained with other modules to create complex workflows.'})
+        CREATE (teleprompter:Concept {name: 'Teleprompter', text: 'DSPy\'s optimization system that automatically improves prompts based on training data and metric optimization.'})
+        
+        // DSPy RAG Components
+        CREATE (dspyRetriever:Concept {name: 'DSPy Retriever', text: 'A DSPy module that handles document retrieval, can be customized with different backends like vector stores or knowledge graphs.'})
+        CREATE (chainOfThought:Concept {name: 'ChainOfThought', text: 'A DSPy pattern that implements step-by-step reasoning, making the model\'s thought process explicit and more reliable.'})
+        CREATE (predictor:Concept {name: 'DSPy Predictor', text: 'Base class for modules that make predictions, can be extended for specific tasks like question answering or summarization.'})
+        
+        // Traditional RAG Concepts
+        CREATE (tradRag:Concept {name: 'Traditional RAG', text: 'Classic Retrieval-Augmented Generation approach using direct prompting with retrieved context, typically implemented with string templates.'})
+        CREATE (promptEng:Concept {name: 'Prompt Engineering', text: 'Manual process of crafting and refining prompts to improve LM performance, often requiring significant trial and error.'})
+        CREATE (contextWindow:Concept {name: 'Context Window', text: 'The maximum amount of text that can be processed by an LM at once, affecting how much retrieved content can be included.'})
+        
+        // Comparison Points
+        CREATE (modular:Concept {name: 'Modularity', text: 'DSPy\'s approach of breaking down complex LM tasks into composable modules, versus traditional monolithic prompts.'})
+        CREATE (optimization:Concept {name: 'Optimization Approach', text: 'DSPy uses systematic optimization with Teleprompter, while traditional RAG relies more on manual prompt tuning.'})
+        CREATE (retrieval:Concept {name: 'Retrieval Strategy', text: 'DSPy allows for sophisticated retrieval patterns with custom retrievers, while traditional RAG often uses simpler vector similarity.'})
+        CREATE (maintenance:Concept {name: 'Maintenance', text: 'DSPy\'s modular approach makes systems easier to maintain and modify, compared to traditional RAG\'s intertwined prompts and logic.'})
+        CREATE (debugging:Concept {name: 'Debugging Capability', text: 'DSPy provides better debugging tools and transparency through its module system, making it easier to identify and fix issues.'})
+        
+        // Create relationships
+        MERGE (dspy)-[:PROVIDES]->(signature)
+        MERGE (dspy)-[:PROVIDES]->(module)
+        MERGE (dspy)-[:INCLUDES]->(teleprompter)
+        
+        MERGE (module)-[:IMPLEMENTS]->(dspyRetriever)
+        MERGE (module)-[:IMPLEMENTS]->(chainOfThought)
+        MERGE (module)-[:EXTENDS]->(predictor)
+        
+        MERGE (dspyRetriever)-[:IMPROVES]->(retrieval)
+        MERGE (chainOfThought)-[:ENHANCES]->(debugging)
+        
+        MERGE (tradRag)-[:USES]->(promptEng)
+        MERGE (tradRag)-[:CONSTRAINED_BY]->(contextWindow)
+        
+        MERGE (dspy)-[:ENABLES]->(modular)
+        MERGE (teleprompter)-[:ENABLES]->(optimization)
+        
+        MERGE (modular)-[:IMPROVES]->(maintenance)
+        MERGE (modular)-[:FACILITATES]->(debugging)
+        
+        MERGE (promptEng)-[:AFFECTS]->(maintenance)
+        MERGE (promptEng)-[:COMPLICATES]->(debugging)
+        
+        // Comparison edges
+        MERGE (dspy)-[:DIFFERS_FROM]->(tradRag)
+        MERGE (dspyRetriever)-[:DIFFERS_FROM]->(retrieval)
+        MERGE (teleprompter)-[:IMPROVES_UPON]->(promptEng)
+        
+2025-04-15 05:37:48,823 | INFO     | data_loader | data_loader.py:77 | Successfully loaded 15 concept nodes
+2025-04-15 05:37:48,858 | INFO     | data_loader | data_loader.py:83 | Created 19 relationships
+2025-04-15 05:37:48,894 | DEBUG    | data_loader | data_loader.py:88 | Loaded concepts:
+2025-04-15 05:37:48,895 | DEBUG    | data_loader | data_loader.py:90 |   - ChainOfThought
+2025-04-15 05:37:48,895 | DEBUG    | data_loader | data_loader.py:90 |   - Context Window
+2025-04-15 05:37:48,895 | DEBUG    | data_loader | data_loader.py:90 |   - DSPy
+2025-04-15 05:37:48,895 | DEBUG    | data_loader | data_loader.py:90 |   - DSPy Module
+2025-04-15 05:37:48,895 | DEBUG    | data_loader | data_loader.py:90 |   - DSPy Predictor
+2025-04-15 05:37:48,895 | DEBUG    | data_loader | data_loader.py:90 |   - DSPy Retriever
+2025-04-15 05:37:48,895 | DEBUG    | data_loader | data_loader.py:90 |   - DSPy Signature
+2025-04-15 05:37:48,895 | DEBUG    | data_loader | data_loader.py:90 |   - Debugging Capability
+2025-04-15 05:37:48,895 | DEBUG    | data_loader | data_loader.py:90 |   - Maintenance
+2025-04-15 05:37:48,895 | DEBUG    | data_loader | data_loader.py:90 |   - Modularity
+2025-04-15 05:37:48,895 | DEBUG    | data_loader | data_loader.py:90 |   - Optimization Approach
+2025-04-15 05:37:48,895 | DEBUG    | data_loader | data_loader.py:90 |   - Prompt Engineering
+2025-04-15 05:37:48,895 | DEBUG    | data_loader | data_loader.py:90 |   - Retrieval Strategy
+2025-04-15 05:37:48,895 | DEBUG    | data_loader | data_loader.py:90 |   - Teleprompter
+2025-04-15 05:37:48,895 | DEBUG    | data_loader | data_loader.py:90 |   - Traditional RAG
+2025-04-15 05:37:48,895 | INFO     | main | main.py:75 | Sample data loaded successfully
+2025-04-15 05:37:48,895 | INFO     | main | main.py:80 | Initializing RAG pipeline
+2025-04-15 05:37:48,895 | INFO     | rag_pipeline | rag_pipeline.py:83 | Initializing GraphRAG with k=3
+2025-04-15 05:37:48,895 | INFO     | rag_pipeline | rag_pipeline.py:13 | Initializing Neo4jRetriever with k=3
+2025-04-15 05:37:48,895 | DEBUG    | rag_pipeline | rag_pipeline.py:87 | GraphRAG initialization complete
+2025-04-15 05:37:48,895 | INFO     | main | main.py:83 | Processing question: What is Shor's Algorithm?
+2025-04-15 05:37:48,895 | INFO     | rag_pipeline | rag_pipeline.py:90 | Processing question: What is Shor's Algorithm?
+2025-04-15 05:37:48,896 | DEBUG    | rag_pipeline | rag_pipeline.py:93 | Starting context retrieval
+2025-04-15 05:37:48,896 | INFO     | rag_pipeline | rag_pipeline.py:20 | Starting retrieval for query: What is Shor's Algorithm?
+2025-04-15 05:37:48,896 | DEBUG    | rag_pipeline | rag_pipeline.py:25 | Processing 1 queries with k=3
+2025-04-15 05:37:48,896 | DEBUG    | rag_pipeline | rag_pipeline.py:32 | Processing query 1/1: What is Shor's Algorithm?
+2025-04-15 05:37:48,896 | DEBUG    | rag_pipeline | rag_pipeline.py:33 | Cleaned query: shor's algorithm
+2025-04-15 05:37:48,896 | DEBUG    | rag_pipeline | rag_pipeline.py:52 | Executing Cypher query:
+2025-04-15 05:37:48,896 | DEBUG    | rag_pipeline | rag_pipeline.py:53 | Query:
+
+                MATCH (c:Concept)
+                WHERE toLower(c.name) CONTAINS toLower($query_text) 
+                   OR toLower(c.text) CONTAINS toLower($query_text)
+                   OR toLower(c.name) CONTAINS toLower($clean_query)
+                   OR toLower(c.text) CONTAINS toLower($clean_query)
+                RETURN c.name + ': ' + c.text AS result
+                LIMIT $limit
+                
+2025-04-15 05:37:48,896 | DEBUG    | rag_pipeline | rag_pipeline.py:54 | Parameters: {'query_text': "What is Shor's Algorithm?", 'clean_query': "shor's algorithm", 'limit': 3}
+2025-04-15 05:37:48,899 | DEBUG    | rag_pipeline | rag_pipeline.py:60 | Found 0 results for query: What is Shor's Algorithm?
+2025-04-15 05:37:48,899 | INFO     | rag_pipeline | rag_pipeline.py:70 | Retrieval complete. Total results: 0
+2025-04-15 05:37:48,899 | DEBUG    | rag_pipeline | rag_pipeline.py:95 | Retrieved 0 passages for context
+2025-04-15 05:37:48,899 | WARNING  | rag_pipeline | rag_pipeline.py:97 | No relevant context found in knowledge graph
+2025-04-15 05:37:48,899 | DEBUG    | rag_pipeline | rag_pipeline.py:100 | Generating answer using ChainOfThought
+2025-04-15 05:37:52,366 | INFO     | rag_pipeline | rag_pipeline.py:103 | Successfully generated answer
+2025-04-15 05:37:52,366 | DEBUG    | rag_pipeline | rag_pipeline.py:104 | Generated answer: Shor's Algorithm is a quantum algorithm that efficiently factors large integers, which is crucial for breaking many cryptographic systems like RSA. Developed by Peter Shor in 1994, it operates in polynomial time, significantly faster than classical algorithms that factor integers in sub-exponential time. The algorithm leverages quantum computing techniques, including superposition and entanglement, to perform its calculations, making it a landmark development in the field of quantum computing and cryptography.
+2025-04-15 05:37:52,366 | INFO     | main | main.py:86 | Successfully generated response
+2025-04-15 05:37:52,366 | DEBUG    | main | main.py:87 | Full response: Prediction(
+    reasoning="Shor's Algorithm is a quantum algorithm developed by mathematician Peter Shor in 1994. It is designed for integer factorization, which means it can efficiently find the prime factors of a composite number. This is significant because the security of many cryptographic systems, such as RSA, relies on the difficulty of factoring large integers. Shor's Algorithm operates in polynomial time, making it exponentially faster than the best-known classical algorithms for this problem, which run in sub-exponential time. The algorithm utilizes quantum computing principles, specifically quantum superposition and entanglement, to achieve its efficiency.",
+    answer="Shor's Algorithm is a quantum algorithm that efficiently factors large integers, which is crucial for breaking many cryptographic systems like RSA. Developed by Peter Shor in 1994, it operates in polynomial time, significantly faster than classical algorithms that factor integers in sub-exponential time. The algorithm leverages quantum computing techniques, including superposition and entanglement, to perform its calculations, making it a landmark development in the field of quantum computing and cryptography."
+)
+2025-04-15 05:37:52,367 | INFO     | main | main.py:101 | Neo4j connection closed
+2025-04-15 05:41:18,317 | INFO     | main | main.py:14 | Starting RAG pipeline application
+2025-04-15 05:41:18,318 | DEBUG    | main | main.py:18 | Environment variables loaded
+2025-04-15 05:41:18,318 | INFO     | main | main.py:21 | Configuring DSPy language model
+2025-04-15 05:41:18,318 | DEBUG    | main | main.py:27 | Environment variables loaded from .env:
+2025-04-15 05:41:18,318 | DEBUG    | main | main.py:28 | OPENAI_API_BASE: https://vip.apiyi.com/v1
+2025-04-15 05:41:18,318 | DEBUG    | main | main.py:29 | LLM_MODEL: gpt-4o-mini
+2025-04-15 05:41:18,318 | INFO     | main | main.py:36 | Using configured model: gpt-4o-mini
+2025-04-15 05:41:18,318 | DEBUG    | main | main.py:47 | Using OpenAI API Base: https://vip.apiyi.com/v1
+2025-04-15 05:41:18,318 | DEBUG    | main | main.py:49 | Attempting to initialize LLM with model: gpt-4o-mini
+2025-04-15 05:41:18,318 | INFO     | main | main.py:52 | DSPy successfully configured with OpenAI model: gpt-4o-mini
+2025-04-15 05:41:18,318 | INFO     | main | main.py:59 | Initializing Neo4j connection
+2025-04-15 05:41:18,318 | INFO     | rag_pipeline | rag_pipeline.py:122 | Initializing Neo4j driver
+2025-04-15 05:41:18,354 | INFO     | rag_pipeline | rag_pipeline.py:135 | Successfully connected to Neo4j for RAG pipeline
+2025-04-15 05:41:18,354 | INFO     | main | main.py:72 | Loading sample data into Neo4j
+2025-04-15 05:41:18,354 | INFO     | data_loader | data_loader.py:12 | Clearing existing Neo4j data
+2025-04-15 05:41:18,394 | INFO     | data_loader | data_loader.py:16 | Loading DSPy and RAG patterns data
+2025-04-15 05:41:18,394 | DEBUG    | data_loader | data_loader.py:70 | Executing data creation query:
+
+        // Core DSPy Concepts
+        CREATE (dspy:Concept {name: 'DSPy', text: 'A framework for programming with language models (LMs) that separates model prompting from execution, enabling systematic prompt development and optimization.'})
+        CREATE (signature:Concept {name: 'DSPy Signature', text: 'A class that defines the expected inputs and outputs of a language model operation, making the interface explicit and type-safe.'})
+        CREATE (module:Concept {name: 'DSPy Module', text: 'A composable unit in DSPy that encapsulates a specific LM operation, can be chained with other modules to create complex workflows.'})
+        CREATE (teleprompter:Concept {name: 'Teleprompter', text: 'DSPy\'s optimization system that automatically improves prompts based on training data and metric optimization.'})
+        
+        // DSPy RAG Components
+        CREATE (dspyRetriever:Concept {name: 'DSPy Retriever', text: 'A DSPy module that handles document retrieval, can be customized with different backends like vector stores or knowledge graphs.'})
+        CREATE (chainOfThought:Concept {name: 'ChainOfThought', text: 'A DSPy pattern that implements step-by-step reasoning, making the model\'s thought process explicit and more reliable.'})
+        CREATE (predictor:Concept {name: 'DSPy Predictor', text: 'Base class for modules that make predictions, can be extended for specific tasks like question answering or summarization.'})
+        
+        // Traditional RAG Concepts
+        CREATE (tradRag:Concept {name: 'Traditional RAG', text: 'Classic Retrieval-Augmented Generation approach using direct prompting with retrieved context, typically implemented with string templates.'})
+        CREATE (promptEng:Concept {name: 'Prompt Engineering', text: 'Manual process of crafting and refining prompts to improve LM performance, often requiring significant trial and error.'})
+        CREATE (contextWindow:Concept {name: 'Context Window', text: 'The maximum amount of text that can be processed by an LM at once, affecting how much retrieved content can be included.'})
+        
+        // Comparison Points
+        CREATE (modular:Concept {name: 'Modularity', text: 'DSPy\'s approach of breaking down complex LM tasks into composable modules, versus traditional monolithic prompts.'})
+        CREATE (optimization:Concept {name: 'Optimization Approach', text: 'DSPy uses systematic optimization with Teleprompter, while traditional RAG relies more on manual prompt tuning.'})
+        CREATE (retrieval:Concept {name: 'Retrieval Strategy', text: 'DSPy allows for sophisticated retrieval patterns with custom retrievers, while traditional RAG often uses simpler vector similarity.'})
+        CREATE (maintenance:Concept {name: 'Maintenance', text: 'DSPy\'s modular approach makes systems easier to maintain and modify, compared to traditional RAG\'s intertwined prompts and logic.'})
+        CREATE (debugging:Concept {name: 'Debugging Capability', text: 'DSPy provides better debugging tools and transparency through its module system, making it easier to identify and fix issues.'})
+        
+        // Create relationships
+        MERGE (dspy)-[:PROVIDES]->(signature)
+        MERGE (dspy)-[:PROVIDES]->(module)
+        MERGE (dspy)-[:INCLUDES]->(teleprompter)
+        
+        MERGE (module)-[:IMPLEMENTS]->(dspyRetriever)
+        MERGE (module)-[:IMPLEMENTS]->(chainOfThought)
+        MERGE (module)-[:EXTENDS]->(predictor)
+        
+        MERGE (dspyRetriever)-[:IMPROVES]->(retrieval)
+        MERGE (chainOfThought)-[:ENHANCES]->(debugging)
+        
+        MERGE (tradRag)-[:USES]->(promptEng)
+        MERGE (tradRag)-[:CONSTRAINED_BY]->(contextWindow)
+        
+        MERGE (dspy)-[:ENABLES]->(modular)
+        MERGE (teleprompter)-[:ENABLES]->(optimization)
+        
+        MERGE (modular)-[:IMPROVES]->(maintenance)
+        MERGE (modular)-[:FACILITATES]->(debugging)
+        
+        MERGE (promptEng)-[:AFFECTS]->(maintenance)
+        MERGE (promptEng)-[:COMPLICATES]->(debugging)
+        
+        // Comparison edges
+        MERGE (dspy)-[:DIFFERS_FROM]->(tradRag)
+        MERGE (dspyRetriever)-[:DIFFERS_FROM]->(retrieval)
+        MERGE (teleprompter)-[:IMPROVES_UPON]->(promptEng)
+        
+2025-04-15 05:41:18,448 | INFO     | data_loader | data_loader.py:77 | Successfully loaded 15 concept nodes
+2025-04-15 05:41:18,451 | INFO     | data_loader | data_loader.py:83 | Created 19 relationships
+2025-04-15 05:41:18,460 | DEBUG    | data_loader | data_loader.py:88 | Loaded concepts:
+2025-04-15 05:41:18,460 | DEBUG    | data_loader | data_loader.py:90 |   - ChainOfThought
+2025-04-15 05:41:18,460 | DEBUG    | data_loader | data_loader.py:90 |   - Context Window
+2025-04-15 05:41:18,460 | DEBUG    | data_loader | data_loader.py:90 |   - DSPy
+2025-04-15 05:41:18,460 | DEBUG    | data_loader | data_loader.py:90 |   - DSPy Module
+2025-04-15 05:41:18,460 | DEBUG    | data_loader | data_loader.py:90 |   - DSPy Predictor
+2025-04-15 05:41:18,460 | DEBUG    | data_loader | data_loader.py:90 |   - DSPy Retriever
+2025-04-15 05:41:18,460 | DEBUG    | data_loader | data_loader.py:90 |   - DSPy Signature
+2025-04-15 05:41:18,460 | DEBUG    | data_loader | data_loader.py:90 |   - Debugging Capability
+2025-04-15 05:41:18,460 | DEBUG    | data_loader | data_loader.py:90 |   - Maintenance
+2025-04-15 05:41:18,460 | DEBUG    | data_loader | data_loader.py:90 |   - Modularity
+2025-04-15 05:41:18,460 | DEBUG    | data_loader | data_loader.py:90 |   - Optimization Approach
+2025-04-15 05:41:18,461 | DEBUG    | data_loader | data_loader.py:90 |   - Prompt Engineering
+2025-04-15 05:41:18,461 | DEBUG    | data_loader | data_loader.py:90 |   - Retrieval Strategy
+2025-04-15 05:41:18,461 | DEBUG    | data_loader | data_loader.py:90 |   - Teleprompter
+2025-04-15 05:41:18,461 | DEBUG    | data_loader | data_loader.py:90 |   - Traditional RAG
+2025-04-15 05:41:18,461 | INFO     | main | main.py:75 | Sample data loaded successfully
+2025-04-15 05:41:18,461 | INFO     | main | main.py:84 | Initializing RAG pipeline
+2025-04-15 05:41:18,461 | INFO     | rag_pipeline | rag_pipeline.py:83 | Initializing GraphRAG with k=3
+2025-04-15 05:41:18,461 | INFO     | rag_pipeline | rag_pipeline.py:13 | Initializing Neo4jRetriever with k=3
+2025-04-15 05:41:18,461 | DEBUG    | rag_pipeline | rag_pipeline.py:87 | GraphRAG initialization complete
+2025-04-15 05:41:18,461 | INFO     | main | main.py:87 | Processing question: What are the key differences between DSPy RAG and traditional RAG approaches?
+2025-04-15 05:41:18,462 | INFO     | rag_pipeline | rag_pipeline.py:90 | Processing question: What are the key differences between DSPy RAG and traditional RAG approaches?
+2025-04-15 05:41:18,462 | DEBUG    | rag_pipeline | rag_pipeline.py:93 | Starting context retrieval
+2025-04-15 05:41:18,462 | INFO     | rag_pipeline | rag_pipeline.py:20 | Starting retrieval for query: What are the key differences between DSPy RAG and traditional RAG approaches?
+2025-04-15 05:41:18,462 | DEBUG    | rag_pipeline | rag_pipeline.py:25 | Processing 1 queries with k=3
+2025-04-15 05:41:18,462 | DEBUG    | rag_pipeline | rag_pipeline.py:32 | Processing query 1/1: What are the key differences between DSPy RAG and traditional RAG approaches?
+2025-04-15 05:41:18,462 | DEBUG    | rag_pipeline | rag_pipeline.py:33 | Cleaned query: what are the key differences between dspy rag and traditional rag approaches
+2025-04-15 05:41:18,462 | DEBUG    | rag_pipeline | rag_pipeline.py:52 | Executing Cypher query:
+2025-04-15 05:41:18,462 | DEBUG    | rag_pipeline | rag_pipeline.py:53 | Query:
+
+                MATCH (c:Concept)
+                WHERE toLower(c.name) CONTAINS toLower($query_text) 
+                   OR toLower(c.text) CONTAINS toLower($query_text)
+                   OR toLower(c.name) CONTAINS toLower($clean_query)
+                   OR toLower(c.text) CONTAINS toLower($clean_query)
+                RETURN c.name + ': ' + c.text AS result
+                LIMIT $limit
+                
+2025-04-15 05:41:18,462 | DEBUG    | rag_pipeline | rag_pipeline.py:54 | Parameters: {'query_text': 'What are the key differences between DSPy RAG and traditional RAG approaches?', 'clean_query': 'what are the key differences between dspy rag and traditional rag approaches', 'limit': 3}
+2025-04-15 05:41:18,467 | DEBUG    | rag_pipeline | rag_pipeline.py:60 | Found 0 results for query: What are the key differences between DSPy RAG and traditional RAG approaches?
+2025-04-15 05:41:18,467 | INFO     | rag_pipeline | rag_pipeline.py:70 | Retrieval complete. Total results: 0
+2025-04-15 05:41:18,467 | DEBUG    | rag_pipeline | rag_pipeline.py:95 | Retrieved 0 passages for context
+2025-04-15 05:41:18,467 | WARNING  | rag_pipeline | rag_pipeline.py:98 | No context found in knowledge graph
+2025-04-15 05:41:18,467 | INFO     | main | main.py:90 | Successfully generated response
+2025-04-15 05:41:18,467 | DEBUG    | main | main.py:91 | Full response: Prediction(
+    context=[],
+    question='What are the key differences between DSPy RAG and traditional RAG approaches?',
+    answer="I apologize, but I couldn't find any relevant information in the knowledge graph to answer your question. Please make sure the knowledge graph has been loaded with data (use --load-data flag) and try asking about DSPy, traditional RAG approaches, or their comparisons."
+)
+2025-04-15 05:41:18,467 | INFO     | main | main.py:106 | Neo4j connection closed
+2025-04-15 05:44:36,497 | INFO     | main | main.py:14 | Starting RAG pipeline application
+2025-04-15 05:44:36,498 | DEBUG    | main | main.py:18 | Environment variables loaded
+2025-04-15 05:44:36,498 | INFO     | main | main.py:21 | Configuring DSPy language model
+2025-04-15 05:44:36,498 | DEBUG    | main | main.py:27 | Environment variables loaded from .env:
+2025-04-15 05:44:36,498 | DEBUG    | main | main.py:28 | OPENAI_API_BASE: https://vip.apiyi.com/v1
+2025-04-15 05:44:36,498 | DEBUG    | main | main.py:29 | LLM_MODEL: gpt-4o-mini
+2025-04-15 05:44:36,498 | INFO     | main | main.py:36 | Using configured model: gpt-4o-mini
+2025-04-15 05:44:36,498 | DEBUG    | main | main.py:47 | Using OpenAI API Base: https://vip.apiyi.com/v1
+2025-04-15 05:44:36,498 | DEBUG    | main | main.py:49 | Attempting to initialize LLM with model: gpt-4o-mini
+2025-04-15 05:44:36,498 | INFO     | main | main.py:52 | DSPy successfully configured with OpenAI model: gpt-4o-mini
+2025-04-15 05:44:36,498 | INFO     | main | main.py:59 | Initializing Neo4j connection
+2025-04-15 05:44:36,498 | INFO     | rag_pipeline | rag_pipeline.py:172 | Initializing Neo4j driver
+2025-04-15 05:44:36,550 | INFO     | rag_pipeline | rag_pipeline.py:185 | Successfully connected to Neo4j for RAG pipeline
+2025-04-15 05:44:36,550 | INFO     | main | main.py:72 | Loading sample data into Neo4j
+2025-04-15 05:44:36,550 | INFO     | data_loader | data_loader.py:12 | Clearing existing Neo4j data
+2025-04-15 05:44:36,577 | INFO     | data_loader | data_loader.py:16 | Loading DSPy and RAG patterns data
+2025-04-15 05:44:36,577 | DEBUG    | data_loader | data_loader.py:70 | Executing data creation query:
+
+        // Core DSPy Concepts
+        CREATE (dspy:Concept {name: 'DSPy', text: 'A framework for programming with language models (LMs) that separates model prompting from execution, enabling systematic prompt development and optimization.'})
+        CREATE (signature:Concept {name: 'DSPy Signature', text: 'A class that defines the expected inputs and outputs of a language model operation, making the interface explicit and type-safe.'})
+        CREATE (module:Concept {name: 'DSPy Module', text: 'A composable unit in DSPy that encapsulates a specific LM operation, can be chained with other modules to create complex workflows.'})
+        CREATE (teleprompter:Concept {name: 'Teleprompter', text: 'DSPy\'s optimization system that automatically improves prompts based on training data and metric optimization.'})
+        
+        // DSPy RAG Components
+        CREATE (dspyRetriever:Concept {name: 'DSPy Retriever', text: 'A DSPy module that handles document retrieval, can be customized with different backends like vector stores or knowledge graphs.'})
+        CREATE (chainOfThought:Concept {name: 'ChainOfThought', text: 'A DSPy pattern that implements step-by-step reasoning, making the model\'s thought process explicit and more reliable.'})
+        CREATE (predictor:Concept {name: 'DSPy Predictor', text: 'Base class for modules that make predictions, can be extended for specific tasks like question answering or summarization.'})
+        
+        // Traditional RAG Concepts
+        CREATE (tradRag:Concept {name: 'Traditional RAG', text: 'Classic Retrieval-Augmented Generation approach using direct prompting with retrieved context, typically implemented with string templates.'})
+        CREATE (promptEng:Concept {name: 'Prompt Engineering', text: 'Manual process of crafting and refining prompts to improve LM performance, often requiring significant trial and error.'})
+        CREATE (contextWindow:Concept {name: 'Context Window', text: 'The maximum amount of text that can be processed by an LM at once, affecting how much retrieved content can be included.'})
+        
+        // Comparison Points
+        CREATE (modular:Concept {name: 'Modularity', text: 'DSPy\'s approach of breaking down complex LM tasks into composable modules, versus traditional monolithic prompts.'})
+        CREATE (optimization:Concept {name: 'Optimization Approach', text: 'DSPy uses systematic optimization with Teleprompter, while traditional RAG relies more on manual prompt tuning.'})
+        CREATE (retrieval:Concept {name: 'Retrieval Strategy', text: 'DSPy allows for sophisticated retrieval patterns with custom retrievers, while traditional RAG often uses simpler vector similarity.'})
+        CREATE (maintenance:Concept {name: 'Maintenance', text: 'DSPy\'s modular approach makes systems easier to maintain and modify, compared to traditional RAG\'s intertwined prompts and logic.'})
+        CREATE (debugging:Concept {name: 'Debugging Capability', text: 'DSPy provides better debugging tools and transparency through its module system, making it easier to identify and fix issues.'})
+        
+        // Create relationships
+        MERGE (dspy)-[:PROVIDES]->(signature)
+        MERGE (dspy)-[:PROVIDES]->(module)
+        MERGE (dspy)-[:INCLUDES]->(teleprompter)
+        
+        MERGE (module)-[:IMPLEMENTS]->(dspyRetriever)
+        MERGE (module)-[:IMPLEMENTS]->(chainOfThought)
+        MERGE (module)-[:EXTENDS]->(predictor)
+        
+        MERGE (dspyRetriever)-[:IMPROVES]->(retrieval)
+        MERGE (chainOfThought)-[:ENHANCES]->(debugging)
+        
+        MERGE (tradRag)-[:USES]->(promptEng)
+        MERGE (tradRag)-[:CONSTRAINED_BY]->(contextWindow)
+        
+        MERGE (dspy)-[:ENABLES]->(modular)
+        MERGE (teleprompter)-[:ENABLES]->(optimization)
+        
+        MERGE (modular)-[:IMPROVES]->(maintenance)
+        MERGE (modular)-[:FACILITATES]->(debugging)
+        
+        MERGE (promptEng)-[:AFFECTS]->(maintenance)
+        MERGE (promptEng)-[:COMPLICATES]->(debugging)
+        
+        // Comparison edges
+        MERGE (dspy)-[:DIFFERS_FROM]->(tradRag)
+        MERGE (dspyRetriever)-[:DIFFERS_FROM]->(retrieval)
+        MERGE (teleprompter)-[:IMPROVES_UPON]->(promptEng)
+        
+2025-04-15 05:44:36,621 | INFO     | data_loader | data_loader.py:77 | Successfully loaded 15 concept nodes
+2025-04-15 05:44:36,625 | INFO     | data_loader | data_loader.py:83 | Created 19 relationships
+2025-04-15 05:44:36,625 | DEBUG    | data_loader | data_loader.py:94 | Testing retrieval for DSPy and RAG concepts:
+2025-04-15 05:44:36,829 | DEBUG    | data_loader | data_loader.py:97 | Found: DSPy
+2025-04-15 05:44:36,829 | DEBUG    | data_loader | data_loader.py:97 | Found: DSPy Signature
+2025-04-15 05:44:36,829 | DEBUG    | data_loader | data_loader.py:97 | Found: DSPy Module
+2025-04-15 05:44:36,829 | DEBUG    | data_loader | data_loader.py:97 | Found: Teleprompter
+2025-04-15 05:44:36,829 | DEBUG    | data_loader | data_loader.py:97 | Found: DSPy Retriever
+2025-04-15 05:44:36,829 | DEBUG    | data_loader | data_loader.py:97 | Found: ChainOfThought
+2025-04-15 05:44:36,829 | DEBUG    | data_loader | data_loader.py:97 | Found: DSPy Predictor
+2025-04-15 05:44:36,829 | DEBUG    | data_loader | data_loader.py:97 | Found: Traditional RAG
+2025-04-15 05:44:36,829 | DEBUG    | data_loader | data_loader.py:97 | Found: Modularity
+2025-04-15 05:44:36,829 | DEBUG    | data_loader | data_loader.py:97 | Found: Optimization Approach
+2025-04-15 05:44:36,829 | DEBUG    | data_loader | data_loader.py:97 | Found: Retrieval Strategy
+2025-04-15 05:44:36,829 | DEBUG    | data_loader | data_loader.py:97 | Found: Maintenance
+2025-04-15 05:44:36,829 | DEBUG    | data_loader | data_loader.py:97 | Found: Debugging Capability
+2025-04-15 05:44:36,829 | DEBUG    | data_loader | data_loader.py:108 | Testing default question: What are the key differences between DSPy RAG and traditional RAG approaches?
+2025-04-15 05:44:36,938 | DEBUG    | data_loader | data_loader.py:110 | Found 0 results for default query
+2025-04-15 05:44:36,938 | INFO     | main | main.py:75 | Sample data loaded successfully
+2025-04-15 05:44:36,938 | INFO     | main | main.py:84 | Initializing RAG pipeline
+2025-04-15 05:44:36,938 | INFO     | rag_pipeline | rag_pipeline.py:133 | Initializing GraphRAG with k=3
+2025-04-15 05:44:36,938 | INFO     | rag_pipeline | rag_pipeline.py:13 | Initializing Neo4jRetriever with k=3
+2025-04-15 05:44:36,940 | DEBUG    | rag_pipeline | rag_pipeline.py:137 | GraphRAG initialization complete
+2025-04-15 05:44:36,941 | INFO     | main | main.py:87 | Processing question: What are the key differences between DSPy RAG and traditional RAG approaches?
+2025-04-15 05:44:36,941 | INFO     | rag_pipeline | rag_pipeline.py:140 | Processing question: What are the key differences between DSPy RAG and traditional RAG approaches?
+2025-04-15 05:44:36,941 | DEBUG    | rag_pipeline | rag_pipeline.py:143 | Starting context retrieval
+2025-04-15 05:44:36,941 | INFO     | rag_pipeline | rag_pipeline.py:20 | Starting retrieval for query: What are the key differences between DSPy RAG and traditional RAG approaches?
+2025-04-15 05:44:36,941 | DEBUG    | rag_pipeline | rag_pipeline.py:25 | Processing 1 queries with k=3
+2025-04-15 05:44:36,941 | DEBUG    | rag_pipeline | rag_pipeline.py:32 | Processing query 1/1: What are the key differences between DSPy RAG and traditional RAG approaches?
+2025-04-15 05:44:36,941 | DEBUG    | rag_pipeline | rag_pipeline.py:33 | Cleaned query: the key differences between dspy rag and traditional rag approaches
+2025-04-15 05:44:36,941 | DEBUG    | rag_pipeline | rag_pipeline.py:84 | Executing Cypher query:
+2025-04-15 05:44:36,941 | DEBUG    | rag_pipeline | rag_pipeline.py:85 | Query:
+
+                MATCH (c:Concept)
+                WHERE 
+                    // Direct matches in name or text
+                    toLower(c.name) CONTAINS toLower($query_text)
+                    OR toLower(c.text) CONTAINS toLower($query_text)
+                    // Matches with cleaned query
+                    OR toLower(c.name) CONTAINS toLower($clean_query)
+                    OR toLower(c.text) CONTAINS toLower($clean_query)
+                    // Additional matches for specific keywords
+                    OR (
+                        toLower($query_text) CONTAINS 'dspy' AND 
+                        (toLower(c.name) CONTAINS 'dspy' OR toLower(c.text) CONTAINS 'dspy')
+                    )
+                    OR (
+                        toLower($query_text) CONTAINS 'rag' AND 
+                        (toLower(c.name) CONTAINS 'rag' OR toLower(c.text) CONTAINS 'rag')
+                    )
+                WITH c, 
+                    // Calculate relevance score based on matches
+                    CASE 
+                        WHEN toLower(c.name) CONTAINS toLower($query_text) THEN 3
+                        WHEN toLower(c.text) CONTAINS toLower($query_text) THEN 2
+                        WHEN toLower(c.name) CONTAINS toLower($clean_query) THEN 2
+                        WHEN toLower(c.text) CONTAINS toLower($clean_query) THEN 1
+                        ELSE 0
+                    END as relevance
+                // Optional: Also get connected nodes for more context
+                OPTIONAL MATCH (c)-[r]-(related:Concept)
+                WHERE type(r) IN ['DIFFERS_FROM', 'IMPROVES_UPON', 'PROVIDES', 'IMPLEMENTS']
+                WITH c, relevance, collect(DISTINCT related.name) as related_concepts
+                RETURN 
+                    CASE
+                        WHEN size(related_concepts) > 0
+                        THEN c.name + ' (' + reduce(s = '', n IN related_concepts | s + ', ' + n)[2..] + '): ' + c.text
+                        ELSE c.name + ': ' + c.text
+                    END as result,
+                    relevance
+                ORDER BY relevance DESC
+                LIMIT $limit
+                
+2025-04-15 05:44:36,941 | DEBUG    | rag_pipeline | rag_pipeline.py:86 | Parameters: {'query_text': 'What are the key differences between DSPy RAG and traditional RAG approaches?', 'clean_query': 'the key differences between dspy rag and traditional rag approaches', 'limit': 3}
+2025-04-15 05:44:37,034 | ERROR    | rag_pipeline | rag_pipeline.py:117 | Error executing Neo4j query: {code: Neo.ClientError.Statement.SyntaxError} {message: Type mismatch: expected List<T> but was String (line 35, column 46 (offset: 1882))
+"                        THEN c.name + ' (' + reduce(s = '', n IN related_concepts | s + ', ' + n)[2..] + '): ' + c.text"
+                                              ^}
+2025-04-15 05:44:37,035 | ERROR    | main | main.py:96 | Error during RAG pipeline execution: {code: Neo.ClientError.Statement.SyntaxError} {message: Type mismatch: expected List<T> but was String (line 35, column 46 (offset: 1882))
+"                        THEN c.name + ' (' + reduce(s = '', n IN related_concepts | s + ', ' + n)[2..] + '): ' + c.text"
+                                              ^}
+2025-04-15 05:44:37,035 | DEBUG    | main | main.py:97 | Attempting to inspect LM history for debugging
+2025-04-15 05:44:37,035 | INFO     | main | main.py:106 | Neo4j connection closed
+2025-04-15 05:45:18,111 | INFO     | main | main.py:14 | Starting RAG pipeline application
+2025-04-15 05:45:18,111 | DEBUG    | main | main.py:18 | Environment variables loaded
+2025-04-15 05:45:18,111 | INFO     | main | main.py:21 | Configuring DSPy language model
+2025-04-15 05:45:18,111 | DEBUG    | main | main.py:27 | Environment variables loaded from .env:
+2025-04-15 05:45:18,111 | DEBUG    | main | main.py:28 | OPENAI_API_BASE: https://vip.apiyi.com/v1
+2025-04-15 05:45:18,111 | DEBUG    | main | main.py:29 | LLM_MODEL: gpt-4o-mini
+2025-04-15 05:45:18,111 | INFO     | main | main.py:36 | Using configured model: gpt-4o-mini
+2025-04-15 05:45:18,111 | DEBUG    | main | main.py:47 | Using OpenAI API Base: https://vip.apiyi.com/v1
+2025-04-15 05:45:18,111 | DEBUG    | main | main.py:49 | Attempting to initialize LLM with model: gpt-4o-mini
+2025-04-15 05:45:18,112 | INFO     | main | main.py:52 | DSPy successfully configured with OpenAI model: gpt-4o-mini
+2025-04-15 05:45:18,112 | INFO     | main | main.py:59 | Initializing Neo4j connection
+2025-04-15 05:45:18,112 | INFO     | rag_pipeline | rag_pipeline.py:172 | Initializing Neo4j driver
+2025-04-15 05:45:18,137 | INFO     | rag_pipeline | rag_pipeline.py:185 | Successfully connected to Neo4j for RAG pipeline
+2025-04-15 05:45:18,137 | INFO     | main | main.py:72 | Loading sample data into Neo4j
+2025-04-15 05:45:18,137 | INFO     | data_loader | data_loader.py:12 | Clearing existing Neo4j data
+2025-04-15 05:45:18,153 | INFO     | data_loader | data_loader.py:16 | Loading DSPy and RAG patterns data
+2025-04-15 05:45:18,153 | DEBUG    | data_loader | data_loader.py:70 | Executing data creation query:
+
+        // Core DSPy Concepts
+        CREATE (dspy:Concept {name: 'DSPy', text: 'A framework for programming with language models (LMs) that separates model prompting from execution, enabling systematic prompt development and optimization.'})
+        CREATE (signature:Concept {name: 'DSPy Signature', text: 'A class that defines the expected inputs and outputs of a language model operation, making the interface explicit and type-safe.'})
+        CREATE (module:Concept {name: 'DSPy Module', text: 'A composable unit in DSPy that encapsulates a specific LM operation, can be chained with other modules to create complex workflows.'})
+        CREATE (teleprompter:Concept {name: 'Teleprompter', text: 'DSPy\'s optimization system that automatically improves prompts based on training data and metric optimization.'})
+        
+        // DSPy RAG Components
+        CREATE (dspyRetriever:Concept {name: 'DSPy Retriever', text: 'A DSPy module that handles document retrieval, can be customized with different backends like vector stores or knowledge graphs.'})
+        CREATE (chainOfThought:Concept {name: 'ChainOfThought', text: 'A DSPy pattern that implements step-by-step reasoning, making the model\'s thought process explicit and more reliable.'})
+        CREATE (predictor:Concept {name: 'DSPy Predictor', text: 'Base class for modules that make predictions, can be extended for specific tasks like question answering or summarization.'})
+        
+        // Traditional RAG Concepts
+        CREATE (tradRag:Concept {name: 'Traditional RAG', text: 'Classic Retrieval-Augmented Generation approach using direct prompting with retrieved context, typically implemented with string templates.'})
+        CREATE (promptEng:Concept {name: 'Prompt Engineering', text: 'Manual process of crafting and refining prompts to improve LM performance, often requiring significant trial and error.'})
+        CREATE (contextWindow:Concept {name: 'Context Window', text: 'The maximum amount of text that can be processed by an LM at once, affecting how much retrieved content can be included.'})
+        
+        // Comparison Points
+        CREATE (modular:Concept {name: 'Modularity', text: 'DSPy\'s approach of breaking down complex LM tasks into composable modules, versus traditional monolithic prompts.'})
+        CREATE (optimization:Concept {name: 'Optimization Approach', text: 'DSPy uses systematic optimization with Teleprompter, while traditional RAG relies more on manual prompt tuning.'})
+        CREATE (retrieval:Concept {name: 'Retrieval Strategy', text: 'DSPy allows for sophisticated retrieval patterns with custom retrievers, while traditional RAG often uses simpler vector similarity.'})
+        CREATE (maintenance:Concept {name: 'Maintenance', text: 'DSPy\'s modular approach makes systems easier to maintain and modify, compared to traditional RAG\'s intertwined prompts and logic.'})
+        CREATE (debugging:Concept {name: 'Debugging Capability', text: 'DSPy provides better debugging tools and transparency through its module system, making it easier to identify and fix issues.'})
+        
+        // Create relationships
+        MERGE (dspy)-[:PROVIDES]->(signature)
+        MERGE (dspy)-[:PROVIDES]->(module)
+        MERGE (dspy)-[:INCLUDES]->(teleprompter)
+        
+        MERGE (module)-[:IMPLEMENTS]->(dspyRetriever)
+        MERGE (module)-[:IMPLEMENTS]->(chainOfThought)
+        MERGE (module)-[:EXTENDS]->(predictor)
+        
+        MERGE (dspyRetriever)-[:IMPROVES]->(retrieval)
+        MERGE (chainOfThought)-[:ENHANCES]->(debugging)
+        
+        MERGE (tradRag)-[:USES]->(promptEng)
+        MERGE (tradRag)-[:CONSTRAINED_BY]->(contextWindow)
+        
+        MERGE (dspy)-[:ENABLES]->(modular)
+        MERGE (teleprompter)-[:ENABLES]->(optimization)
+        
+        MERGE (modular)-[:IMPROVES]->(maintenance)
+        MERGE (modular)-[:FACILITATES]->(debugging)
+        
+        MERGE (promptEng)-[:AFFECTS]->(maintenance)
+        MERGE (promptEng)-[:COMPLICATES]->(debugging)
+        
+        // Comparison edges
+        MERGE (dspy)-[:DIFFERS_FROM]->(tradRag)
+        MERGE (dspyRetriever)-[:DIFFERS_FROM]->(retrieval)
+        MERGE (teleprompter)-[:IMPROVES_UPON]->(promptEng)
+        
+2025-04-15 05:45:18,213 | INFO     | data_loader | data_loader.py:77 | Successfully loaded 15 concept nodes
+2025-04-15 05:45:18,218 | INFO     | data_loader | data_loader.py:83 | Created 19 relationships
+2025-04-15 05:45:18,218 | DEBUG    | data_loader | data_loader.py:94 | Testing retrieval for DSPy and RAG concepts:
+2025-04-15 05:45:18,226 | DEBUG    | data_loader | data_loader.py:97 | Found: DSPy
+2025-04-15 05:45:18,226 | DEBUG    | data_loader | data_loader.py:97 | Found: DSPy Signature
+2025-04-15 05:45:18,226 | DEBUG    | data_loader | data_loader.py:97 | Found: DSPy Module
+2025-04-15 05:45:18,226 | DEBUG    | data_loader | data_loader.py:97 | Found: Teleprompter
+2025-04-15 05:45:18,226 | DEBUG    | data_loader | data_loader.py:97 | Found: DSPy Retriever
+2025-04-15 05:45:18,226 | DEBUG    | data_loader | data_loader.py:97 | Found: ChainOfThought
+2025-04-15 05:45:18,226 | DEBUG    | data_loader | data_loader.py:97 | Found: DSPy Predictor
+2025-04-15 05:45:18,226 | DEBUG    | data_loader | data_loader.py:97 | Found: Traditional RAG
+2025-04-15 05:45:18,226 | DEBUG    | data_loader | data_loader.py:97 | Found: Modularity
+2025-04-15 05:45:18,226 | DEBUG    | data_loader | data_loader.py:97 | Found: Optimization Approach
+2025-04-15 05:45:18,226 | DEBUG    | data_loader | data_loader.py:97 | Found: Retrieval Strategy
+2025-04-15 05:45:18,226 | DEBUG    | data_loader | data_loader.py:97 | Found: Maintenance
+2025-04-15 05:45:18,226 | DEBUG    | data_loader | data_loader.py:97 | Found: Debugging Capability
+2025-04-15 05:45:18,226 | DEBUG    | data_loader | data_loader.py:108 | Testing default question: What are the key differences between DSPy RAG and traditional RAG approaches?
+2025-04-15 05:45:18,232 | DEBUG    | data_loader | data_loader.py:110 | Found 0 results for default query
+2025-04-15 05:45:18,233 | INFO     | main | main.py:75 | Sample data loaded successfully
+2025-04-15 05:45:18,233 | INFO     | main | main.py:84 | Initializing RAG pipeline
+2025-04-15 05:45:18,233 | INFO     | rag_pipeline | rag_pipeline.py:133 | Initializing GraphRAG with k=3
+2025-04-15 05:45:18,233 | INFO     | rag_pipeline | rag_pipeline.py:13 | Initializing Neo4jRetriever with k=3
+2025-04-15 05:45:18,233 | DEBUG    | rag_pipeline | rag_pipeline.py:137 | GraphRAG initialization complete
+2025-04-15 05:45:18,233 | INFO     | main | main.py:87 | Processing question: What are the key differences between DSPy RAG and traditional RAG approaches?
+2025-04-15 05:45:18,233 | INFO     | rag_pipeline | rag_pipeline.py:140 | Processing question: What are the key differences between DSPy RAG and traditional RAG approaches?
+2025-04-15 05:45:18,233 | DEBUG    | rag_pipeline | rag_pipeline.py:143 | Starting context retrieval
+2025-04-15 05:45:18,233 | INFO     | rag_pipeline | rag_pipeline.py:20 | Starting retrieval for query: What are the key differences between DSPy RAG and traditional RAG approaches?
+2025-04-15 05:45:18,233 | DEBUG    | rag_pipeline | rag_pipeline.py:25 | Processing 1 queries with k=3
+2025-04-15 05:45:18,233 | DEBUG    | rag_pipeline | rag_pipeline.py:32 | Processing query 1/1: What are the key differences between DSPy RAG and traditional RAG approaches?
+2025-04-15 05:45:18,233 | DEBUG    | rag_pipeline | rag_pipeline.py:33 | Cleaned query: the key differences between dspy rag and traditional rag approaches
+2025-04-15 05:45:18,233 | DEBUG    | rag_pipeline | rag_pipeline.py:84 | Executing Cypher query:
+2025-04-15 05:45:18,233 | DEBUG    | rag_pipeline | rag_pipeline.py:85 | Query:
+
+                MATCH (c:Concept)
+                WHERE 
+                    // Direct matches in name or text
+                    toLower(c.name) CONTAINS toLower($query_text)
+                    OR toLower(c.text) CONTAINS toLower($query_text)
+                    // Matches with cleaned query
+                    OR toLower(c.name) CONTAINS toLower($clean_query)
+                    OR toLower(c.text) CONTAINS toLower($clean_query)
+                    // Additional matches for specific keywords
+                    OR (
+                        toLower($query_text) CONTAINS 'dspy' AND 
+                        (toLower(c.name) CONTAINS 'dspy' OR toLower(c.text) CONTAINS 'dspy')
+                    )
+                    OR (
+                        toLower($query_text) CONTAINS 'rag' AND 
+                        (toLower(c.name) CONTAINS 'rag' OR toLower(c.text) CONTAINS 'rag')
+                    )
+                WITH c, 
+                    // Calculate relevance score based on matches
+                    CASE 
+                        WHEN toLower(c.name) CONTAINS toLower($query_text) THEN 3
+                        WHEN toLower(c.text) CONTAINS toLower($query_text) THEN 2
+                        WHEN toLower(c.name) CONTAINS toLower($clean_query) THEN 2
+                        WHEN toLower(c.text) CONTAINS toLower($clean_query) THEN 1
+                        ELSE 0
+                    END as relevance
+                // Optional: Also get connected nodes for more context
+                OPTIONAL MATCH (c)-[r]-(related:Concept)
+                WHERE type(r) IN ['DIFFERS_FROM', 'IMPROVES_UPON', 'PROVIDES', 'IMPLEMENTS']
+                WITH c, relevance, collect(DISTINCT related.name) as related_concepts
+                RETURN 
+                    CASE
+                        WHEN size(related_concepts) > 0
+                        THEN c.name + ' (related: ' + substring(reduce(s = '', n IN related_concepts | s + ', ' + n), 2) + '): ' + c.text
+                        ELSE c.name + ': ' + c.text
+                    END as result,
+                    relevance
+                ORDER BY relevance DESC
+                LIMIT $limit
+                
+2025-04-15 05:45:18,234 | DEBUG    | rag_pipeline | rag_pipeline.py:86 | Parameters: {'query_text': 'What are the key differences between DSPy RAG and traditional RAG approaches?', 'clean_query': 'the key differences between dspy rag and traditional rag approaches', 'limit': 3}
+2025-04-15 05:45:19,026 | DEBUG    | rag_pipeline | rag_pipeline.py:92 | Found 3 results for query: What are the key differences between DSPy RAG and traditional RAG approaches?
+2025-04-15 05:45:19,027 | DEBUG    | rag_pipeline | rag_pipeline.py:94 | Retrieved passages:
+2025-04-15 05:45:19,027 | DEBUG    | rag_pipeline | rag_pipeline.py:96 |   1. DSPy Signature (related: DSPy): A class that defines the expected inputs and outputs of a language model operation, making the interface explicit and type-safe.
+2025-04-15 05:45:19,027 | DEBUG    | rag_pipeline | rag_pipeline.py:96 |   2. DSPy Module (related: DSPy Retriever, ChainOfThought, DSPy): A composable unit in DSPy that encapsulates a specific LM operation, can be chained with other modules to create complex workflows.
+2025-04-15 05:45:19,027 | DEBUG    | rag_pipeline | rag_pipeline.py:96 |   3. DSPy (related: Traditional RAG, DSPy Module, DSPy Signature): A framework for programming with language models (LMs) that separates model prompting from execution, enabling systematic prompt development and optimization.
+2025-04-15 05:45:19,027 | INFO     | rag_pipeline | rag_pipeline.py:120 | Retrieval complete. Total results: 3
+2025-04-15 05:45:19,027 | DEBUG    | rag_pipeline | rag_pipeline.py:145 | Retrieved 3 passages for context
+2025-04-15 05:45:19,027 | DEBUG    | rag_pipeline | rag_pipeline.py:158 | Generating answer using ChainOfThought
+2025-04-15 05:45:22,209 | INFO     | rag_pipeline | rag_pipeline.py:161 | Successfully generated answer
+2025-04-15 05:45:22,209 | DEBUG    | rag_pipeline | rag_pipeline.py:162 | Generated answer: The key differences between DSPy RAG and traditional RAG approaches likely include the following aspects: 
+1. **Modularity**: DSPy RAG is built on a framework that allows for composable units (modules) that can be chained together, promoting a more modular design compared to traditional RAG, which may not emphasize this level of modularity.
+2. **Type Safety**: DSPy utilizes a signature system that defines expected inputs and outputs, making the interface explicit and type-safe, which is not a standard feature in traditional RAG approaches.
+3. **Separation of Concerns**: DSPy separates model prompting from execution, enabling systematic prompt development and optimization, whereas traditional RAG may integrate these processes more closely, potentially leading to less flexibility in prompt management.
+
+Overall, DSPy RAG appears to offer a more structured and systematic approach to working with language models compared to traditional RAG methods.
+2025-04-15 05:45:22,209 | INFO     | main | main.py:90 | Successfully generated response
+2025-04-15 05:45:22,209 | DEBUG    | main | main.py:91 | Full response: Prediction(
+    reasoning='The provided context does not contain specific information about DSPy RAG or traditional RAG approaches. However, it does mention that DSPy is a framework for programming with language models that separates model prompting from execution, which may imply a more structured and systematic approach compared to traditional RAG methods. Traditional RAG (Retrieval-Augmented Generation) typically combines retrieval and generation in a less modular way. Without explicit details on DSPy RAG, I can infer that the key differences might lie in the modularity, type safety, and systematic prompt development that DSPy offers compared to the more integrated and possibly less structured traditional RAG.',
+    answer='The key differences between DSPy RAG and traditional RAG approaches likely include the following aspects: \n1. **Modularity**: DSPy RAG is built on a framework that allows for composable units (modules) that can be chained together, promoting a more modular design compared to traditional RAG, which may not emphasize this level of modularity.\n2. **Type Safety**: DSPy utilizes a signature system that defines expected inputs and outputs, making the interface explicit and type-safe, which is not a standard feature in traditional RAG approaches.\n3. **Separation of Concerns**: DSPy separates model prompting from execution, enabling systematic prompt development and optimization, whereas traditional RAG may integrate these processes more closely, potentially leading to less flexibility in prompt management.\n\nOverall, DSPy RAG appears to offer a more structured and systematic approach to working with language models compared to traditional RAG methods.'
+)
+2025-04-15 05:45:22,210 | INFO     | main | main.py:106 | Neo4j connection closed
