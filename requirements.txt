@@ -18,3 +18,4 @@ requests>=2.25
 beautifulsoup4>=4.9
 lxml>=4.6 # Recommended parser for BeautifulSoup
 trafilatura>=1.8.0 # For advanced content extraction
+autogenstudio
